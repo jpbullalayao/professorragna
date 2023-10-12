@@ -17,7 +17,7 @@ export const mainContainer = style({
 
   "@media": {
     "(max-width: 1024px)": {
-      margin: "40px 0",
+      margin: "30px 0",
     },
   },
 });

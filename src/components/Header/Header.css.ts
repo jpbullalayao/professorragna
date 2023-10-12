@@ -9,3 +9,11 @@ export const homeUrlContainer = style({
   alignItems: "center",
   display: "flex",
 });
+
+export const navContainer = style({
+  "@media": {
+    "(max-width: 414px)": {
+      display: "none",
+    },
+  },
+});

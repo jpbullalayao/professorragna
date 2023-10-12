@@ -1,6 +1,6 @@
 import React from "react";
 
-import { main, homeUrlContainer } from "./Header.css";
+import { main, homeUrlContainer, navContainer } from "./Header.css";
 
 import { Avatar } from "@/components/Avatar";
 import { Link } from "@/components/Link";
@@ -35,7 +35,7 @@ export const Header: React.FC<Props> = () => (
       </Link>
     </div>
 
-    <nav>
+    <nav className={navContainer}>
       <ul>
         {NAV_ITEMS.map((navItem) => (
           <Link

@@ -4,6 +4,7 @@ export const main = style({
   alignItems: "center",
   color: "#666",
   display: "flex",
+  fontSize: "14px",
   width: "100%",
   justifyContent: "space-between",
   padding: "20px 0",
