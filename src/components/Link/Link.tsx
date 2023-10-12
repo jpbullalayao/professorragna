@@ -1,10 +1,11 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, CSSProperties } from "react";
 
 import { main } from "./Link.css";
 
 interface Props {
   children: ReactNode;
   href: string;
+  [key: string]: any;
 }
 
 export const Link: React.FC<Props> = ({ children, href, ...props }) => (

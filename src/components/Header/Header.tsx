@@ -6,9 +6,7 @@ import { Avatar } from "@/components/Avatar";
 import { Link } from "@/components/Link";
 import ragna from "@/assets/ragna.jpeg";
 
-interface Props {
-  name: string;
-}
+interface Props {}
 
 const NAV_ITEMS = [
   {
@@ -17,11 +15,12 @@ const NAV_ITEMS = [
   },
 ];
 
-export const Header: React.FC<Props> = ({ name }) => (
+export const Header: React.FC<Props> = () => (
   <header className={main}>
     <div className={homeUrlContainer}>
-      <Link>
-        <Avatar src={ragna} width={50} height={50} />
+      <Link href="/">
+        {/* @ts-ignore */}
+        <Avatar src={ragna} alt="Professor Ragna" width={50} height={50} />
       </Link>
       <Link
         href="/"
@@ -29,9 +28,10 @@ export const Header: React.FC<Props> = ({ name }) => (
           color: "#6e58b1",
           marginLeft: "15px",
           fontSize: "30px",
+          fontFamily: "Verdana",
         }}
       >
-        {name}
+        professorragna.com
       </Link>
     </div>
 
@@ -39,11 +39,11 @@ export const Header: React.FC<Props> = ({ name }) => (
       <ul>
         {NAV_ITEMS.map((navItem) => (
           <Link
+            key={navItem.name}
             href={navItem.href}
             style={{
               color: "black",
               padding: "0 5px 20px 5px",
-              // paddingBottom: "20px",
               borderBottom: "3px solid #6e58b1",
             }}
           >

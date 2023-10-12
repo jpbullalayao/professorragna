@@ -1,12 +1,12 @@
 import React from "react";
 
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 import { main } from "./Avatar.css";
 
 interface Props {
   alt: string;
-  src: string;
+  src: StaticImageData;
   height: number;
   width: number;
 }
