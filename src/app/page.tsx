@@ -31,7 +31,7 @@ const Home = () => {
 
               <Text>
                 I have worked with all types of start-ups, from pre-seed with 3
-                {`employees, to mid-stage that IPO'ed during my tenure.`}
+                {` employees, to mid-stage that IPO'ed during my tenure.`}
               </Text>
 
               <Text>
@@ -62,8 +62,12 @@ const Home = () => {
 
             <Section>
               <h2>Start-ups & Engineering 🚀</h2>
+
               <Text>
                 Do you need an engineer to build your next start-up or project?
+              </Text>
+
+              <Text>
                 Tweet me{" "}
                 <Link href="https://twitter.com/professorragna">
                   @professorragna
