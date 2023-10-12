@@ -1,95 +1,79 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import Image from "next/image";
 
-export default function Home() {
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
+import { Link } from "@/components/Link";
+import { Section } from "@/components/Section";
+import { Text } from "@/components/Text";
+
+import githubIcon from "@/assets/icon-github.svg";
+import linkedinIcon from "@/assets/icon-linkedin.svg";
+import twitterIcon from "@/assets/icon-twitter.svg";
+
+const Home = () => {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      <Header name="professorragna.com" />
+      <main
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          margin: "80px 0",
+        }}
+      >
+        <div
+          style={{
+            width: "40%",
+          }}
+        >
+          <Section>
+            <h1>Hello, I'm Professor Ragna 👾</h1>
+
+            <Text>I build start-ups, web apps and APIs.</Text>
+
+            <Text>
+              I'm a full-stack software engineer based in the San Francisco Bay
+              Area, with 9 years of experience building and deploying web
+              applications from scratch.
+            </Text>
+
+            <Text>
+              I have worked with a wide-range of start-ups, from pre-seed with 3
+              employees, to mid-stage start-ups that IPO'ed during my tenure.
+            </Text>
+
+            <Text>
+              But when I'm not coding, I{" "}
+              <Link href="https://twitch.tv/professorragna">stream</Link> and
+              talk Pokemon, fighting games 🐬, and JRPGs.
+            </Text>
+          </Section>
+
+          <Section>
+            <h2>Start-ups & Engineering 🚀</h2>
+            <Text>
+              Do you need an engineer for your next start-up or project? Tweet
+              me{" "}
+              <Link href="https://twitter.com/professorragna">
+                @professorragna
+              </Link>{" "}
+              or <Link href="mailto:professor.ragna@gmail.com">e-mail</Link> me.
+              I'd love to hear what you're building.
+            </Text>
+          </Section>
         </div>
-      </div>
+      </main>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      <Footer>
+        <span>© 2023 Professor Ragna</span>
+        <div>
+          <Image src={githubIcon} alt="GitHub" />
+          <Image src={linkedinIcon} alt="LinkedIn" />
+          <Image src={twitterIcon} alt="Twitter" />
+        </div>
+      </Footer>
+    </>
+  );
+};
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
-}
+export default Home;
