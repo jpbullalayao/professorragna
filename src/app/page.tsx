@@ -6,6 +6,11 @@ import { Text } from "@/components/Text";
 
 import { contentContainer, mainContainer, sections } from "./page.css";
 
+export const metadata: Metadata = {
+  title: "Jourdan Bul-lalayao - Start-ups, Engineering, & Video Games",
+  description: "The home page for Jourdan Bul-lalayao",
+};
+
 const Home = () => {
   return (
     <div
