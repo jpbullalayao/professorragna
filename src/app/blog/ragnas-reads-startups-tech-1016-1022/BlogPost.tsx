@@ -1,5 +1,6 @@
 "use client";
 
+import { ContentDivider } from "@/components/ContentDivider";
 import { H1 } from "@/core-components/H1";
 import { H2 } from "@/core-components/H2";
 import { Link } from "@/components/Link";
@@ -54,9 +55,21 @@ export const articles: Article[] = [
       "Jason Fried writes a short and sweet passage with one simple philosophy that will certainly help your team dynamic: cheer for everyone on your team.",
   },
   {
-    title: "",
-    href: "",
-    description: "",
+    title: "What makes a 10x software engineer?",
+    href: linkAttributor(
+      "https://www.reddit.com/r/SoftwareEngineering/comments/177txm6/what_makes_a_10x_software_engineer"
+    ),
+    description:
+      'The r/SoftwareEngineering subreddit discusses their opinions on what is considered a "10x software engineer" - with many traits ranging from great communication, to building and shipping fast, to understanding at a deep level the organization\'s tools.',
+  },
+  {
+    title:
+      "How to get more interviews, offers, and higher compensation at top tech companies",
+    href: linkAttributor(
+      "https://careercutler.substack.com/p/how-to-get-more-interviews-offers"
+    ),
+    description:
+      "Jordan Cutler, author of the High Growth Engineer substack, summarizes the main takeaways from his interview with Alan Stein, CEO of Kadima Careers. As the title of the article suggests, he shares actionable steps discussed about how to get more interviews, more offers, and negotiating for higher compensation.",
   },
 ];
 
@@ -73,7 +86,9 @@ export const BlogPost = () => (
         especially if you are looking to grow as a start-up engineer.
       </i>
     </Text>
-    <hr />
+
+    <ContentDivider />
+
     {articles.map(({ title, href, description }) => (
       <>
         <H2>
@@ -82,7 +97,9 @@ export const BlogPost = () => (
         <Text>{description}</Text>
       </>
     ))}
-    <hr />
+
+    <ContentDivider />
+
     <Text>
       What have you read this week? Tweet me{" "}
       <Link href="https://twitter.com/professorragna">@professorragna</Link>!
