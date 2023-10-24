@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Link } from "@/components/Link";
@@ -5,6 +7,11 @@ import { Section } from "@/components/Section";
 import { Text } from "@/components/Text";
 
 import { contentContainer, mainContainer, sections } from "./page.css";
+
+export const metadata: Metadata = {
+  title: "Jourdan Bul-lalayao - Start-ups, Engineering, & Video Games",
+  description: "The home page for Jourdan Bul-lalayao",
+};
 
 const Home = () => {
   return (
