@@ -8,7 +8,13 @@ import { Text } from "@/components/Text";
 
 import { linkAttributor } from "@/helpers/link-attributor";
 
-export const articles: Article[] = [
+interface Article {
+  title: string;
+  href: string;
+  description: string;
+}
+
+const articles: Article[] = [
   {
     title: "7 simple habits of the top 1% of engineers",
     href: linkAttributor(
@@ -75,12 +81,12 @@ export const articles: Article[] = [
 
 export const BlogPost = () => (
   <>
-    <H1>Ragna's Reads: Start-ups & Engineering (10/16 - 10/22)</H1>
+    <H1>{`Ragna's Reads: Start-ups & Engineering (10/16 - 10/22)`}</H1>
     <Text>
       <i>
-        This is the first edition of <b>Ragna's Reads</b>, where I feature the
-        top articles I read in the start-up and engineering worlds each week.
-        They will contain anything related to growing as an engineer,
+        This is the first edition of <b>{`Ragna's Reads`}</b>, where I feature
+        the top articles I read in the start-up and engineering worlds each
+        week. They will contain anything related to growing as an engineer,
         philosophies in the start-up space, leadership principles, new or
         existing technologies, and the like. I hope you find value in them
         especially if you are looking to grow as a start-up engineer.
