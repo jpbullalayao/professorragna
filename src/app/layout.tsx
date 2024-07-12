@@ -21,11 +21,7 @@ export default function RootLayout({
           gtag('config', '${process.env.GOOGLE_ANALYTICS_ID}');
         `}
       </Script>
-      <body
-        style={{
-          padding: "0 10px",
-        }}
-      >
+      <body className="p-3">
         {children}
       </body>
     </html>

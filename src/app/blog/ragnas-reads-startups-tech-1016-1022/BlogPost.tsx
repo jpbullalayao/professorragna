@@ -3,8 +3,8 @@
 import { ContentDivider } from "@/components/ContentDivider";
 import { H1 } from "@/core-components/H1";
 import { H2 } from "@/core-components/H2";
-import { Link } from "@/components/Link";
-import { Text } from "@/components/Text";
+import { Link } from "@/components/link";
+import { Text } from "@/components/text";
 
 import { linkAttributor } from "@/helpers/link-attributor";
 

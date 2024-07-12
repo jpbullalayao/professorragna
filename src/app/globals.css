@@ -1,7 +1,11 @@
-html,
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* html,
 body {
   background: #fafafa;
   color: #333;
   font-family: Helvetica Neue;
   line-height: 1.5rem;
-}
+} */

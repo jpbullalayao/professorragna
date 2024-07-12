@@ -1,9 +1,7 @@
 import React from "react";
 
-import { main, homeUrlContainer, navContainer } from "./Header.css";
-
-import { Avatar } from "@/components/Avatar";
-import { Link } from "@/components/Link";
+import { Avatar } from "@/components/avatar";
+import { Link } from "@/components/link";
 import ragna from "@/assets/ragna.jpeg";
 
 interface Props {}
@@ -16,10 +14,9 @@ const NAV_ITEMS = [
 ];
 
 export const Header: React.FC<Props> = () => (
-  <header className={main}>
-    <div className={homeUrlContainer}>
+  <header className="flex justify-between">
+    <div className="flex items-center">
       <Link href="/">
-        {/* @ts-ignore */}
         <Avatar src={ragna} alt="Professor Ragna" width={50} height={50} />
       </Link>
       <Link
@@ -35,7 +32,7 @@ export const Header: React.FC<Props> = () => (
       </Link>
     </div>
 
-    <nav className={navContainer}>
+    <nav className="hidden sm:block">
       <ul>
         {NAV_ITEMS.map((navItem) => (
           <Link

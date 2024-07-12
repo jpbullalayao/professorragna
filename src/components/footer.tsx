@@ -2,9 +2,8 @@ import React, { ReactNode } from "react";
 
 import Image from "next/image";
 
-import { main, socials } from "./Footer.css";
-
-import { Link } from "@/components/Link";
+import { Link } from "@/components/link";
+import { Text } from "@/components/text";
 import githubIcon from "@/assets/icon-github.svg";
 import linkedinIcon from "@/assets/icon-linkedin.svg";
 import twitterIcon from "@/assets/icon-twitter.svg";
@@ -13,9 +12,9 @@ import twitchIcon from "@/assets/icon-twitch.svg";
 interface Props {}
 
 export const Footer: React.FC<Props> = () => (
-  <footer className={main}>
-    <span>© 2023 Professor Ragna</span>
-    <div className={socials}>
+  <footer className="flex items-center justify-between border-t py-5">
+    <Text className="text-secondary text-sm">© 2024 Professor Ragna</Text>
+    <div className="flex justify-between w-[50%] lg:w-[20%]">
       <Link href="https://twitch.tv/professorragna">
         <Image src={twitchIcon} alt="Twitch" />
       </Link>
