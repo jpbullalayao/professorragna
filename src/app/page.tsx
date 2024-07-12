@@ -33,18 +33,17 @@ const Home = () => {
               <Text className="my-6">
                 {`I'm a full-stack software engineer based in the San Francisco
                 Bay Area, with a decade of experience building and deploying web
-                applications and APIs from scratch.`}
+                apps and APIs from zero.`}
               </Text>
 
               <Text className="my-6">
-                I have worked with all types of start-ups, from pre-seed with 0
+                I've built all types of start-ups, from pre-seed with 0
                 {` employees, to mid-stage that IPO'ed during my tenure.`}
               </Text>
 
               <Text className="my-6">
-                {`I'm still figuring out what's next in my career path. But at the
-                same time, I'm building and studying to become the best engineer
-                I can be 🛠️📚.`}
+                {`I'm still figuring out what I want to focus on next. In the mean time, I'm researching, prototyping and studying to become the best product engineer
+                I can be 🛠️📚.`} I'm also on <Link href="https://twitter.com/professorragna">Twitter</Link> a lot.
               </Text>
             </Section>
 
@@ -63,7 +62,8 @@ const Home = () => {
               </Text>
 
               <Text className="my-6">
-                {`Casually, I'll wind down with a good RPG like Final Fantasy.`}
+                {`Casually, I'll wind down with a good RPG like Final Fantasy. `}
+                I'm on the Dawntrail hype, catch me on Behemoth in <Link href="https://na.finalfantasyxiv.com/lodestone/character/3410408/#profile">FFXIV</Link>.
               </Text>
             </Section>
 
@@ -71,7 +71,7 @@ const Home = () => {
               <h2 className="text-2xl font-bold">Start-ups & Engineering 🚀</h2>
 
               <Text className="my-6">
-                Do you need an engineer to build your next start-up or project?
+                Are you looking for an engineer for your next start-up or project?
               </Text>
 
               <Text className="my-6">

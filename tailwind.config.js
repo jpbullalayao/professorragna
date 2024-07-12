@@ -7,6 +7,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        interactive: {
+          DEFAULT: tailwindColors.fuchsia[400],
+        },
+      },
       textColor: {
         primary: tailwindColors.slate[950],
         secondary: tailwindColors.slate[600],

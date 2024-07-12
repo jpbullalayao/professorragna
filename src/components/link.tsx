@@ -6,7 +6,7 @@ interface Props extends PropsWithChildren {
 }
 
 export const Link: React.FC<Props> = ({ children, href, ...props }) => (
-  <a href={href} target="_blank" className="text-[#F471FF]" {...props}>
+  <a href={href} target="_blank" className="text-interactive" {...props}>
     {children}
   </a>
 );
