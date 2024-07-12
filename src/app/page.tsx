@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
-import { Link } from "@/components/Link";
-import { Section } from "@/components/Section";
-import { Text } from "@/components/Text";
+import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
+import { Link } from "@/components/link";
+import { Section } from "@/components/section";
+import { Text } from "@/components/text";
 
 import { contentContainer, mainContainer, sections } from "./page.css";
 
@@ -26,55 +26,55 @@ const Home = () => {
         <main className={mainContainer}>
           <div className={sections}>
             <Section>
-              <h1>{`Hello, I'm Jourdan 👾`}</h1>
+              <h1 className="text-2xl font-bold">{`Hello, I'm Jourdan 👾`}</h1>
 
-              <Text>I build start-ups, web apps and APIs.</Text>
+              <Text className="my-6">I build start-ups, web apps and APIs.</Text>
 
-              <Text>
+              <Text className="my-6">
                 {`I'm a full-stack software engineer based in the San Francisco
-                Bay Area, with 9 years of experience building and deploying web
-                applications and APIs from scratch.`}
+                Bay Area, with a decade of experience building and deploying web
+                apps and APIs from zero.`}
               </Text>
 
-              <Text>
-                I have worked with all types of start-ups, from pre-seed with 3
-                {` employees, to mid-stage that IPO'ed during my tenure.`}
+              <Text className="my-6">
+                {`I've built all types of start-ups, from pre-seed with 0 employees, to mid-stage that IPO'ed during my tenure.`}
               </Text>
 
-              <Text>
-                {`I'm still figuring out what's next in my career path. But at the
-                same time, I'm building and studying to become the best engineer
-                I can be 🛠️📚.`}
+              <Text className="my-6">
+                {`I'm still figuring out what I want to focus on next. In the mean time, I'm researching, prototyping and studying to become the best product engineer
+                I can be 🛠️📚. I'm also on `}
+                <Link href="https://twitter.com/professorragna">Twitter</Link> a lot.
               </Text>
             </Section>
 
             <Section>
-              <h2>Video Games 🎮</h2>
+              <h2 className="text-2xl font-bold">Video Games 🎮</h2>
 
-              <Text>
+              <Text className="my-6">
                 {`When I'm not coding, I `}
                 <Link href="https://twitch.tv/professorragna">stream</Link> and
                 talk Pokemon, fighting games 🐬, and JRPGs.
               </Text>
 
-              <Text>
-                I enjoy playing some games competitively, and am most recently a
-                2023 World Championship competitor in Pokemon.
+              <Text className="my-6">
+                I enjoy playing some games competitively. I was a
+                2023 World Championship competitor in Pokemon, and am recently also a 2024 World Championship invitee.
               </Text>
 
-              <Text>
-                {`Casually, I'll wind down with a good RPG like Final Fantasy.`}
+              <Text className="my-6">
+                {`Casually, I'll wind down with a good RPG like Final Fantasy. I'm on the Dawntrail hype, catch me on Behemoth in `}
+                <Link href="https://na.finalfantasyxiv.com/lodestone/character/3410408/#profile">FFXIV</Link>.
               </Text>
             </Section>
 
             <Section>
-              <h2>Start-ups & Engineering 🚀</h2>
+              <h2 className="text-2xl font-bold">Start-ups & Engineering 🚀</h2>
 
-              <Text>
-                Do you need an engineer to build your next start-up or project?
+              <Text className="my-6">
+                Are you looking for an engineer for your next start-up or project?
               </Text>
 
-              <Text>
+              <Text className="my-6">
                 Tweet me{" "}
                 <Link href="https://twitter.com/professorragna">
                   @professorragna
