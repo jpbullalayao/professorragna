@@ -37,13 +37,13 @@ const Home = () => {
               </Text>
 
               <Text className="my-6">
-                I've built all types of start-ups, from pre-seed with 0
-                {` employees, to mid-stage that IPO'ed during my tenure.`}
+                {`I've built all types of start-ups, from pre-seed with 0 employees, to mid-stage that IPO'ed during my tenure.`}
               </Text>
 
               <Text className="my-6">
                 {`I'm still figuring out what I want to focus on next. In the mean time, I'm researching, prototyping and studying to become the best product engineer
-                I can be 🛠️📚.`} I'm also on <Link href="https://twitter.com/professorragna">Twitter</Link> a lot.
+                I can be 🛠️📚. I'm also on `}
+                <Link href="https://twitter.com/professorragna">Twitter</Link> a lot.
               </Text>
             </Section>
 
@@ -62,8 +62,8 @@ const Home = () => {
               </Text>
 
               <Text className="my-6">
-                {`Casually, I'll wind down with a good RPG like Final Fantasy. `}
-                I'm on the Dawntrail hype, catch me on Behemoth in <Link href="https://na.finalfantasyxiv.com/lodestone/character/3410408/#profile">FFXIV</Link>.
+                {`Casually, I'll wind down with a good RPG like Final Fantasy. I'm on the Dawntrail hype, catch me on Behemoth in `}
+                <Link href="https://na.finalfantasyxiv.com/lodestone/character/3410408/#profile">FFXIV</Link>.
               </Text>
             </Section>
 
