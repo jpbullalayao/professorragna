@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react"
 import Script from "next/script";
 
 import "./globals.css";
@@ -23,6 +24,7 @@ export default function RootLayout({
       </Script>
       <body className="p-3">
         {children}
+        <Analytics />
       </body>
     </html>
   );
