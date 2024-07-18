@@ -6,11 +6,9 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Button } from "@/components/ui/button";
 import { submitPayment } from '../_actions/submit-payment';
 
-const stripePromise = loadStripe("pk_test_51NVigKBptEIrlERHgJMXpMDFuGKHGwQu9BvsFuBQw3dveBw98dw2OZVHehy0s8eQSVLqDW3NuPCVgSBQgDEv34fS00kz7V4wHJ");
-
 export const TipForm = () => {
-  // const stripe = useStripe();
-  // const elements = useElements();
+  const stripe = useStripe();
+  const elements = useElements();
 
   const options = {
     // passing the client secret obtained from the server
@@ -25,26 +23,25 @@ export const TipForm = () => {
     // which would refresh the page.
     event.preventDefault();
 
-    console.log('hello');
+    const { error } = await elements.submit();
 
     const result = await submitPayment();
 
-    // const result = await stripe.confirmPayment({
-    //   //`Elements` instance that was used to create the Payment Element
-    //   elements,
-    //   confirmParams: {
-    //     return_url: "https://example.com/order/123/complete",
-    //   },
-    // });
+    console.log('just submitted');
+
+    const paymentResult = await stripe.confirmPayment({
+      clientSecret: result.client_secret,
+      elements,
+      confirmParams: {
+        return_url: "?payment=success",
+      },
+    });
   }
 
   return (
-    // <Elements stripe={stripePromise} options={options}>
-    <Elements stripe={stripePromise} options={options}>
-      <form onSubmit={handleSubmit}>
-        <PaymentElement />
-        <Button type="submit">$6.25</Button>
-      </form>
-    </Elements>
+    <form onSubmit={handleSubmit}>
+      <PaymentElement />
+      <Button type="submit">$6.25</Button>
+    </form>
   );
 };
