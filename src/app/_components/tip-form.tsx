@@ -27,7 +27,7 @@ export const TipForm = () => {
 
     console.log('hello');
 
-    const result = await submitPayment(event);
+    const result = await submitPayment();
 
     // const result = await stripe.confirmPayment({
     //   //`Elements` instance that was used to create the Payment Element
