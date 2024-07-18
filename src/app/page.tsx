@@ -6,6 +6,8 @@ import { Link } from "@/components/link";
 import { Section } from "@/components/section";
 import { Text } from "@/components/text";
 
+import { TipForm } from "./_components/tip-form";
+
 import { contentContainer, mainContainer, sections } from "./page.css";
 
 export const metadata: Metadata = {
@@ -15,12 +17,7 @@ export const metadata: Metadata = {
 
 const Home = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
+    <div className="flex justify-center">
       <div className={contentContainer}>
         <Header />
         <main className={mainContainer}>
@@ -82,6 +79,12 @@ const Home = () => {
                 or <Link href="mailto:professor.ragna@gmail.com">e-mail</Link>{" "}
                 {`me. I'd love to hear what you're building.`}
               </Text>
+            </Section>
+
+            <Section>
+              <TipForm />
+
+              {/* <Button>$6.25</Button> */}
             </Section>
           </div>
         </main>
