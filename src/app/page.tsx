@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
+import { Suspense } from 'react'
 
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { Link } from "@/components/link";
 import { Section } from "@/components/section";
 import { Text } from "@/components/text";
+
+import { TipSection } from "./_components/tip-section";
 
 import { contentContainer, mainContainer, sections } from "./page.css";
 
@@ -15,12 +18,7 @@ export const metadata: Metadata = {
 
 const Home = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
+    <div className="flex justify-center">
       <div className={contentContainer}>
         <Header />
         <main className={mainContainer}>
@@ -82,6 +80,13 @@ const Home = () => {
                 or <Link href="mailto:professor.ragna@gmail.com">e-mail</Link>{" "}
                 {`me. I'd love to hear what you're building.`}
               </Text>
+            </Section>
+
+            <Section>
+              {/* Suspense needed for useSearchParams... https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout */}
+              <Suspense>
+                <TipSection />
+              </Suspense>
             </Section>
           </div>
         </main>
