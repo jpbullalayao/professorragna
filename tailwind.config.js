@@ -15,7 +15,7 @@ module.exports = {
       textColor: {
         primary: tailwindColors.slate[950],
         secondary: tailwindColors.slate[600],
-      }
+      },
     },
   },
   plugins: [],

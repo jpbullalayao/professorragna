@@ -1,47 +1,66 @@
 "use client";
 
-import { Elements, PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
+import { useState } from "react";
+
+import {
+	PaymentElement,
+	useStripe,
+	useElements,
+} from "@stripe/react-stripe-js";
 
 import { Button } from "@/components/ui/button";
-import { submitPayment } from '../_actions/submit-payment';
+import { Text } from "@/components/text";
+import { submitPayment } from "../_actions/submit-payment";
 
-export const TipForm = () => {
-  const stripe = useStripe();
-  const elements = useElements();
+interface Props {
+	amount: number;
+	amountFormatted: string;
+}
 
-  const options = {
-    // passing the client secret obtained from the server
-    // clientSecret: 'sk_test_51NVigKBptEIrlERHdyFU9HVHPubnp9Aewsi0G7RmeRGAtL9XcXazcRvwEDWrRsbvIrpR1fCHlOZfJSJW2BKpoVOC00VHB70TzX',
-    mode: 'payment',
-    amount: 625,
-    currency: 'usd',
-  };
+export const TipForm: React.FC<Props> = ({ amount, amountFormatted }) => {
+	const stripe = useStripe();
+	const elements = useElements();
+  const [errorMsg, setErrorMsg] = useState<string | undefined>(undefined);
 
-  const handleSubmit = async (event) => {
-    // We don't want to let default form submission happen here,
-    // which would refresh the page.
-    event.preventDefault();
+	const handleSubmit = async () => {
+    if (!stripe || !elements) {
+      // Stripe.js hasn't yet loaded.
+      return;
+    }
 
-    const { error } = await elements.submit();
+		const { error } = await elements.submit();
+    if (error) {
+      setErrorMsg(error.message);
+      return;
+    }
 
-    const result = await submitPayment();
+		const { client_secret: clientSecret } = await submitPayment(amount);
 
-    console.log('just submitted');
+		const { error: paymentError } = await stripe.confirmPayment({
+      // @ts-ignore
+			clientSecret,
+			elements,
+			confirmParams: {
+        return_url: `${window.location.origin}?payment=success#tip`,
+			},
+		});
 
-    const paymentResult = await stripe.confirmPayment({
-      clientSecret: result.client_secret,
-      elements,
-      confirmParams: {
-        return_url: "?payment=success",
-      },
-    });
-  }
+    if (paymentError) {
+      setErrorMsg(paymentError.message);
+    }
+	};
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <PaymentElement />
-      <Button type="submit">$6.25</Button>
-    </form>
-  );
+	return (
+    <>
+      <form>
+        <PaymentElement />
+      </form>
+
+      <Button className="mt-5 w-[150px]" onClick={handleSubmit}>
+				Support {amountFormatted}
+			</Button>
+
+      {errorMsg && <Text className="text-red-500">{errorMsg}</Text>}
+    </>
+	);
 };

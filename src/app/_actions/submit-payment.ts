@@ -2,12 +2,11 @@
 
 import Stripe from 'stripe';
 
-const stripe = new Stripe("sk_test_51NVigKBptEIrlERHdyFU9HVHPubnp9Aewsi0G7RmeRGAtL9XcXazcRvwEDWrRsbvIrpR1fCHlOZfJSJW2BKpoVOC00VHB70TzX");
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "");
 
-export const submitPayment = async () => {
-  console.log('about to submit');
+export const submitPayment = async (amount: number) => {
   const paymentIntent = await stripe.paymentIntents.create({
-    amount: 625, // Amount in cents
+    amount,
     currency: 'usd',
   });
 

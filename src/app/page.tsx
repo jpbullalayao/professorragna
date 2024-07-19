@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
+import { Suspense } from 'react'
 
-// import { Elements } from '@stripe/react-stripe-js';
-// import { loadStripe } from '@stripe/stripe-js';
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { Link } from "@/components/link";
 import { Section } from "@/components/section";
 import { Text } from "@/components/text";
 
-// import { TipForm } from "./_components/tip-form";
 import { TipSection } from "./_components/tip-section";
 
 import { contentContainer, mainContainer, sections } from "./page.css";
@@ -18,17 +16,7 @@ export const metadata: Metadata = {
   description: "The home page for Jourdan Bul-lalayao",
 };
 
-// const stripePromise = loadStripe("pk_test_51NVigKBptEIrlERHgJMXpMDFuGKHGwQu9BvsFuBQw3dveBw98dw2OZVHehy0s8eQSVLqDW3NuPCVgSBQgDEv34fS00kz7V4wHJ");
-
 const Home = () => {
-  // const options = {
-  //   // passing the client secret obtained from the server
-  //   // clientSecret: 'sk_test_51NVigKBptEIrlERHdyFU9HVHPubnp9Aewsi0G7RmeRGAtL9XcXazcRvwEDWrRsbvIrpR1fCHlOZfJSJW2BKpoVOC00VHB70TzX',
-  //   mode: 'payment',
-  //   amount: 625,
-  //   currency: 'usd',
-  // };
-
   return (
     <div className="flex justify-center">
       <div className={contentContainer}>
@@ -95,11 +83,10 @@ const Home = () => {
             </Section>
 
             <Section>
-              {/* <Elements stripe={stripePromise} options={options}>
-                <TipForm />
-              </Elements> */}
-              {/* <Button>$6.25</Button> */}
-              <TipSection />
+              {/* Suspense needed for useSearchParams... https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout */}
+              <Suspense>
+                <TipSection />
+              </Suspense>
             </Section>
           </div>
         </main>
