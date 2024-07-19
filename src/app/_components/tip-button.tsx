@@ -5,17 +5,17 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 interface Props extends PropsWithChildren {
-	isSelected: boolean;
-	onClick: () => void;
+  isSelected: boolean;
+  onClick: () => void;
 }
 
 export const TipButton: React.FC<Props> = ({
-	children,
-	isSelected,
-	onClick,
+  children,
+  isSelected,
+  onClick,
 }) => {
-	return (
-		<Button
+  return (
+    <Button
       variant="secondary"
       size="icon"
       onClick={onClick}
