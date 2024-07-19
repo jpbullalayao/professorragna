@@ -16,12 +16,16 @@ export const TipButton: React.FC<Props> = ({
 }) => {
 	return (
 		<Button
-			variant="secondary"
-			size="icon"
-			onClick={onClick}
-			className={cn("group", isSelected && "bg-interactive")}
-		>
-			<Text className={cn("group-hover:text-white", isSelected && "text-white")}>{children}</Text>
-		</Button>
-	);
+      variant="secondary"
+      size="icon"
+      onClick={onClick}
+      className={cn("group", isSelected && "bg-interactive")}
+    >
+      <Text
+        className={cn("group-hover:text-white", isSelected && "text-white")}
+      >
+        {children}
+      </Text>
+    </Button>
+  );
 };
