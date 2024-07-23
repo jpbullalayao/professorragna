@@ -69,7 +69,7 @@ const Home = () => {
               <h2 className="text-2xl font-bold">Start-ups & Engineering 🚀</h2>
 
               <Text className="my-6">
-                Are you looking for an engineer for your next start-up or project?
+                Are you looking for an engineer for your next start-up?
               </Text>
 
               <Text className="my-6">
@@ -79,6 +79,15 @@ const Home = () => {
                 </Link>{" "}
                 or <Link href="mailto:professor.ragna@gmail.com">e-mail</Link>{" "}
                 {`me. I'd love to hear what you're building.`}
+              </Text>
+            </Section>
+
+            <Section>
+              <h2 className="text-2xl font-bold">Chat with me ☕</h2>
+
+              <Text className="my-6">
+                {`I'm always open to meeting other engineers, founders, and fellow gamers. `}
+                <Link href="https://calendly.com/professorragna/30min">Schedule a chat</Link> with me some time and let me know how I can help!
               </Text>
             </Section>
 
