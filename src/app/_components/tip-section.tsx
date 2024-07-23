@@ -25,7 +25,7 @@ const stripePromise = loadStripe(
 export const TipSection = () => {
   const router = useRouter();
   const params = useSearchParams();
-  const priceOfSingle = 625;
+  const priceOfSingle = 640;
   const [numDrinks, setNumDrinks] = useState(1);
 
   const paymentStep =
@@ -83,6 +83,11 @@ export const TipSection = () => {
         >
           Support {amountFormatted}
         </Button>
+
+        <Text className="my-6 text-xs italic">
+          A Tie Guan Yin milk tea with boba from TP Tea is $6.40 <span className="not-italic">😄</span>.
+        </Text>
+        
       </div>
     ),
     [PAYMENT_STEP[PAYMENT_STEP_IN_PROGRESS]]: (
@@ -99,7 +104,7 @@ export const TipSection = () => {
 
   return (
     <div id="tip">
-      <h2 className="text-2xl font-bold">Support 🙏</h2>
+      <h2 className="text-2xl font-bold">Support me 🙏</h2>
 
       <Text className="my-6">
         {`I love drinking coffee and milk tea, especially when I'm heads down
