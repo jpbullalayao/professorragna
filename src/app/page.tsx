@@ -12,8 +12,8 @@ import { TipSection } from "./_components/tip-section";
 import { contentContainer, mainContainer, sections } from "./page.css";
 
 export const metadata: Metadata = {
-  title: "Jourdan Bul-lalayao - Start-ups, Engineering, & Video Games",
-  description: "The home page for Jourdan Bul-lalayao",
+  title: "Professor Ragna - Start-ups, Engineering, & Video Games",
+  description: "The home page for Professor Ragna (Jourdan Bul-lalayao)",
 };
 
 const Home = () => {
