@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 const Home = () => {
   return (
     <div className="flex justify-center">
-      <div>
+      <div className="w-full lg:w-[70%]">
         <Header />
 
         <main className="flex justify-center my-7 lg:my-[80px]">
