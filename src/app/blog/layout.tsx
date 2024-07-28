@@ -1,8 +1,6 @@
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 
-import { contentContainer, mainContainer } from "@/app/page.css";
-
 import StyledComponentsRegistry from "@/lib/registry";
 
 interface Props {
