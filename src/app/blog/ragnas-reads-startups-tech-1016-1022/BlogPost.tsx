@@ -1,8 +1,6 @@
 "use client";
 
 import { ContentDivider } from "@/components/ContentDivider";
-import { H1 } from "@/core-components/H1";
-import { H2 } from "@/core-components/H2";
 import { Link } from "@/components/link";
 import { Text } from "@/components/text";
 
@@ -81,7 +79,7 @@ const articles: Article[] = [
 
 export const BlogPost = () => (
   <>
-    <H1>{`Ragna's Reads: Start-ups & Engineering (10/16 - 10/22)`}</H1>
+    <Text tag="h1">{`Ragna's Reads: Start-ups & Engineering (10/16 - 10/22)`}</Text>
     <Text>
       <i>
         This is the first edition of <b>{`Ragna's Reads`}</b>, where I feature
@@ -95,14 +93,16 @@ export const BlogPost = () => (
 
     <ContentDivider />
 
-    {articles.map(({ title, href, description }) => (
-      <>
-        <H2>
-          <Link href={href}>{title}</Link>
-        </H2>
-        <Text>{description}</Text>
-      </>
-    ))}
+    <div className="flex flex-col gap-6">
+      {articles.map(({ title, href, description }) => (
+        <div key={href}>
+          <Text tag="h2" className="text-xl">
+            <Link href={href}>{title}</Link>
+          </Text>
+          <Text>{description}</Text>
+        </div>
+      ))}
+    </div>
 
     <ContentDivider />
 
