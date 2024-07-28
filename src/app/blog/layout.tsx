@@ -1,8 +1,6 @@
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 
-import { contentContainer, mainContainer } from "@/app/page.css";
-
 import StyledComponentsRegistry from "@/lib/registry";
 
 interface Props {
@@ -11,15 +9,10 @@ interface Props {
 
 const BlogLayout = ({ children }: Props) => (
   <StyledComponentsRegistry>
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
-      <div className={contentContainer}>
+    <div className="flex justify-center">
+      <div className="w-full lg:w-[70%]">
         <Header />
-        <main className={mainContainer}>
+        <main className="flex justify-center my-7 lg:my-[80px]">
           <article>{children}</article>
         </main>
         <Footer />

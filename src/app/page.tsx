@@ -9,8 +9,6 @@ import { Text } from "@/components/text";
 
 import { TipSection } from "./_components/tip-section";
 
-import { contentContainer, mainContainer, sections } from "./page.css";
-
 export const metadata: Metadata = {
   title: "Professor Ragna - Start-ups, Engineering, & Video Games",
   description: "The home page for Professor Ragna (Jourdan Bul-lalayao)",
@@ -19,10 +17,11 @@ export const metadata: Metadata = {
 const Home = () => {
   return (
     <div className="flex justify-center">
-      <div className={contentContainer}>
+      <div className="w-full lg:w-[70%]">
         <Header />
-        <main className={mainContainer}>
-          <div className={sections}>
+
+        <main className="flex justify-center my-7 lg:my-[80px]">
+          <div className="w-full lg:w-1/2">
             <Section>
               <h1 className="text-2xl font-bold">{`Hello, I'm Jourdan 👾`}</h1>
 
