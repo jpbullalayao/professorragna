@@ -1,6 +1,6 @@
 "use client";
 
-import { ContentDivider } from "@/components/ContentDivider";
+import { ContentDivider } from "@/components/content-divider";
 import { Link } from "@/components/link";
 import { Text } from "@/components/text";
 
