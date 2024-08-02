@@ -8,7 +8,7 @@ import hero from "@/assets/blog/start-up-engineer-library.jpg";
 export const Container = () => (
   <>
     <div className="mb-6">
-      <Text className="text-2xl font-bold" tag="h1">
+      <Text variant="header" tag="h1">
         Introducing the Start-up Engineering Library 📚
       </Text>
       <Text className="text-secondary">
