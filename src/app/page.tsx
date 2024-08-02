@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Suspense } from 'react'
+import { Suspense } from "react";
 
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
@@ -14,6 +14,14 @@ export const metadata: Metadata = {
   description: "The home page for Professor Ragna (Jourdan Bul-lalayao)",
 };
 
+const posts = [
+  {
+    title: "Introducing the Start-up Engineering Library",
+    href: "/blog/introducing-start-up-engineer-library",
+    date: "8/1/2024",
+  },
+];
+
 const Home = () => {
   return (
     <div className="flex justify-center">
@@ -25,7 +33,9 @@ const Home = () => {
             <Section>
               <h1 className="text-2xl font-bold">{`Hello, I'm Jourdan 👾`}</h1>
 
-              <Text className="my-6">I build start-ups, web apps and APIs.</Text>
+              <Text className="my-6">
+                I build start-ups, web apps and APIs.
+              </Text>
 
               <Text className="my-6">
                 {`I'm a full-stack software engineer based in the San Francisco
@@ -40,7 +50,8 @@ const Home = () => {
               <Text className="my-6">
                 {`I'm still figuring out what I want to focus on next. In the mean time, I'm researching, prototyping and studying to become the best product engineer
                 I can be 🛠️📚. I'm also on `}
-                <Link href="https://twitter.com/professorragna">Twitter</Link> a lot.
+                <Link href="https://twitter.com/professorragna">Twitter</Link> a
+                lot.
               </Text>
             </Section>
 
@@ -54,13 +65,17 @@ const Home = () => {
               </Text>
 
               <Text className="my-6">
-                I enjoy playing some games competitively. I was a
-                2023 World Championship competitor in Pokemon, and am recently also a 2024 World Championship invitee.
+                I enjoy playing some games competitively. I was a 2023 World
+                Championship competitor in Pokemon, and am recently also a 2024
+                World Championship invitee.
               </Text>
 
               <Text className="my-6">
                 {`Casually, I'll wind down with a good RPG like Final Fantasy. I'm on the Dawntrail hype, catch me on Behemoth in `}
-                <Link href="https://na.finalfantasyxiv.com/lodestone/character/3410408/#profile">FFXIV</Link>.
+                <Link href="https://na.finalfantasyxiv.com/lodestone/character/3410408/#profile">
+                  FFXIV
+                </Link>
+                .
               </Text>
             </Section>
 
@@ -86,7 +101,10 @@ const Home = () => {
 
               <Text className="my-6">
                 {`I'm always open to meeting other engineers, founders, and fellow gamers. `}
-                <Link href="https://calendly.com/professorragna/30min">Schedule a chat</Link> with me some time and let me know how I can help!
+                <Link href="https://calendly.com/professorragna/30min">
+                  Schedule a chat
+                </Link>{" "}
+                with me some time and let me know how I can help!
               </Text>
             </Section>
 
@@ -95,6 +113,20 @@ const Home = () => {
               <Suspense>
                 <TipSection />
               </Suspense>
+            </Section>
+
+            <Section>
+              <h2 className="text-2xl font-bold">Blog ✍️</h2>
+
+              {posts.map(({ title, href, date }) => (
+                <div key={href} className="flex justify-between my-6">
+                  <Text>
+                    <Link href={href}>{title}</Link>
+                  </Text>
+
+                  <Text className="text-secondary">{date}</Text>
+                </div>
+              ))}
             </Section>
           </div>
         </main>
