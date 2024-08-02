@@ -5,7 +5,7 @@ export const Container = () => (
 	<article>
     <div className="mb-6">
       <Text className="text-2xl font-bold" tag="h1">
-        Introducing the Start-up Engineering Library
+        Introducing the Start-up Engineering Library 📚
       </Text>
       <Text className="text-secondary">
         8/1/2024
