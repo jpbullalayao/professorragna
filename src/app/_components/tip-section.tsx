@@ -104,7 +104,7 @@ export const TipSection = () => {
 
   return (
     <div id="tip">
-      <h2 className="text-2xl font-bold">Support me 🙏</h2>
+      <Text variant="header" tag="h2">Support me 🙏</Text>
 
       <Text className="my-6">
         {`I love drinking coffee and milk tea, especially when I'm heads down

@@ -31,7 +31,7 @@ const Home = () => {
         <main className="flex justify-center my-7 lg:my-[80px]">
           <div className="w-full lg:w-1/2">
             <Section>
-              <h1 className="text-2xl font-bold">{`Hello, I'm Jourdan 👾`}</h1>
+              <Text variant="header" tag="h1">{`Hello, I'm Jourdan 👾`}</Text>
 
               <Text className="my-6">
                 I build start-ups, web apps and APIs.
@@ -56,7 +56,7 @@ const Home = () => {
             </Section>
 
             <Section>
-              <h2 className="text-2xl font-bold">Video Games 🎮</h2>
+              <Text variant="header" tag="h2">Video Games 🎮</Text>
 
               <Text className="my-6">
                 {`When I'm not coding, I `}
@@ -80,7 +80,7 @@ const Home = () => {
             </Section>
 
             <Section>
-              <h2 className="text-2xl font-bold">Start-ups & Engineering 🚀</h2>
+              <Text variant="header" tag="h2">Start-ups & Engineering 🚀</Text>
 
               <Text className="my-6">
                 Are you looking for an engineer for your next start-up?
@@ -97,7 +97,7 @@ const Home = () => {
             </Section>
 
             <Section>
-              <h2 className="text-2xl font-bold">Chat with me ☕</h2>
+              <Text variant="header" tag="h2">Chat with me ☕</Text>
 
               <Text className="my-6">
                 {`I'm always open to meeting other engineers, founders, and fellow gamers. `}
@@ -116,7 +116,7 @@ const Home = () => {
             </Section>
 
             <Section>
-              <h2 className="text-2xl font-bold">Blog ✍️</h2>
+              <Text variant="header" tag="h2">Blog ✍️</Text>
 
               {posts.map(({ title, href, date }) => (
                 <div key={href} className="flex justify-between my-6">
