@@ -1,8 +1,12 @@
+import Image from "next/image";
+
 import { Link } from "@/components/link";
 import { Text } from "@/components/text";
 
+import hero from "@/assets/blog/start-up-engineer-library.jpg";
+
 export const Container = () => (
-  <article>
+  <>
     <div className="mb-6">
       <Text className="text-2xl font-bold" tag="h1">
         Introducing the Start-up Engineering Library 📚
@@ -18,6 +22,14 @@ export const Container = () => (
       </Link>
       !
     </Text>
+
+    <div className="flex justify-center relative mb-6">
+      <Image
+        src={hero}
+        className="w-full lg:w-3/5"
+        alt="Komi Can't Communicate"
+      />
+    </div>
 
     <Text className="mb-6">
       You can probably guess the target audience from the name, but I hope it
@@ -48,5 +60,5 @@ export const Container = () => (
       <Link href="https://twitter.com/professorragna">@professorragna</Link> if
       there are any particular resources you know of that I could learn from!
     </Text>
-  </article>
+  </>
 );

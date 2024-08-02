@@ -22,7 +22,7 @@ export default function RootLayout({
           gtag('config', '${process.env.GOOGLE_ANALYTICS_ID}');
         `}
       </Script>
-      <body className="p-3">
+      <body className="p-5">
         {children}
         <Analytics />
       </body>
