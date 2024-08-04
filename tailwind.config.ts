@@ -18,5 +18,7 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-animate') // Required for sheet open/close animation
+  ], 
 }

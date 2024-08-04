@@ -5,6 +5,7 @@ import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { Link } from "@/components/link";
 import { Section } from "@/components/section";
+// import { Sidebar } from "@/components/sidebar";
 import { Text } from "@/components/text";
 
 import { TipSection } from "./_components/tip-section";

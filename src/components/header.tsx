@@ -1,8 +1,13 @@
+"use client";
+
 import React from "react";
 
 import { Avatar } from "@/components/avatar";
 import { Link } from "@/components/link";
+import { Sidebar } from "@/components/sidebar";
 import ragna from "@/assets/ragna.jpeg";
+
+import { Ellipsis } from "lucide-react";
 
 interface Props {}
 
@@ -15,6 +20,17 @@ const NAV_ITEMS = [
 
 export const Header: React.FC<Props> = () => (
   <header className="flex justify-between">
+    <Sidebar
+      onOpen={() => { console.log('opening here')}}
+      onClose={() => { console.log('closing here')}}
+      className=" bg-white"
+    >
+      <ul>
+        <li>Home</li>
+        <li>Blog</li>
+      </ul>
+    </Sidebar>
+
     <div className="flex items-center">
       <Link href="/">
         <Avatar src={ragna} alt="Professor Ragna" width={50} height={50} />
