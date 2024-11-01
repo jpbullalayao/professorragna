@@ -30,47 +30,46 @@ const Home = () => {
 
         <main className="flex justify-center my-7 lg:my-[80px]">
           <div className="w-full lg:w-1/2">
-            <Section>
+            <Section className="flex flex-col gap-6">
               <Text variant="header" tag="h1">{`Hello, I'm Jourdan 👾`}</Text>
 
-              <Text className="my-6">
-                I build start-ups, web apps and APIs.
-              </Text>
+              <Text>I build start-ups.</Text>
 
-              <Text className="my-6">
+              <Text>
                 {`I'm a full-stack software engineer based in the San Francisco
                 Bay Area, with a decade of experience building and deploying web
                 apps and APIs from zero.`}
               </Text>
 
-              <Text className="my-6">
+              <Text>
                 {`I've built all types of start-ups, from pre-seed with 0 employees, to mid-stage that IPO'ed during my tenure.`}
               </Text>
 
-              <Text className="my-6">
-                {`I'm still figuring out what I want to focus on next. In the mean time, I'm researching, prototyping and studying to become the best product engineer
+              <Text>
+                {`I'm currently employed full-time. But on the side, I love to prototype, research and study to become the best product engineer
                 I can be 🛠️📚. I'm also on `}
                 <Link href="https://twitter.com/professorragna">Twitter</Link> a
                 lot.
               </Text>
             </Section>
 
-            <Section>
-              <Text variant="header" tag="h2">Video Games 🎮</Text>
+            <Section className="flex flex-col gap-6">
+              <Text variant="header" tag="h2">
+                Video Games 🎮
+              </Text>
 
-              <Text className="my-6">
+              <Text>
                 {`When I'm not coding, I `}
                 <Link href="https://twitch.tv/professorragna">stream</Link> and
                 talk Pokemon, fighting games 🐬, and JRPGs.
               </Text>
 
-              <Text className="my-6">
-                I enjoy playing some games competitively. I was a 2023 World
-                Championship competitor in Pokemon, and am recently also a 2024
-                World Championship invitee.
+              <Text>
+                I enjoy playing some games competitively. I was a 2023 and 2024
+                World Championship competitor in Pokemon.
               </Text>
 
-              <Text className="my-6">
+              <Text>
                 {`Casually, I'll wind down with a good RPG like Final Fantasy. I'm on the Dawntrail hype, catch me on Behemoth in `}
                 <Link href="https://na.finalfantasyxiv.com/lodestone/character/3410408/#profile">
                   FFXIV
@@ -79,14 +78,17 @@ const Home = () => {
               </Text>
             </Section>
 
-            <Section>
-              <Text variant="header" tag="h2">Start-ups & Engineering 🚀</Text>
-
-              <Text className="my-6">
-                Are you looking for an engineer for your next start-up?
+            <Section className="flex flex-col gap-6">
+              <Text variant="header" tag="h2">
+                Start-ups & Engineering 🚀
               </Text>
 
-              <Text className="my-6">
+              <Text>
+                Are you looking for an engineer for your next start-up or an
+                investor?
+              </Text>
+
+              <Text>
                 Tweet me{" "}
                 <Link href="https://twitter.com/professorragna">
                   @professorragna
@@ -96,11 +98,13 @@ const Home = () => {
               </Text>
             </Section>
 
-            <Section>
-              <Text variant="header" tag="h2">Chat with me ☕</Text>
+            <Section className="flex flex-col gap-6">
+              <Text variant="header" tag="h2">
+                Chat with me ☕
+              </Text>
 
-              <Text className="my-6">
-                {`I'm always open to meeting other engineers, founders, and fellow gamers. `}
+              <Text>
+                {`I'm always open to meeting other founders, engineers, and fellow gamers. `}
                 <Link href="https://calendly.com/professorragna/30min">
                   Schedule a chat
                 </Link>{" "}
@@ -116,7 +120,9 @@ const Home = () => {
             </Section>
 
             <Section>
-              <Text variant="header" tag="h2">Blog ✍️</Text>
+              <Text variant="header" tag="h2">
+                Blog ✍️
+              </Text>
 
               {posts.map(({ title, href, date }) => (
                 <div key={href} className="flex justify-between my-6">
