@@ -41,7 +41,7 @@ const Home = () => {
               <Text>I build start-ups.</Text>
 
               <Text>
-                {`I'm a full-stack software engineer based in the San Francisco
+                {`I'm a full-stack product engineer based in the San Francisco
                 Bay Area, with a decade of experience building and deploying web
                 apps and APIs from zero.`}
               </Text>
@@ -51,7 +51,7 @@ const Home = () => {
               </Text>
 
               <Text>
-                {`I'm currently employed full-time. But on the side, I love to prototype, research and study to become the best product engineer
+                {`I'm currently employed full-time, and enjoy my role a lot. But on the side, I love to prototype, build, research and study to become the best engineer
                 I can be 🛠️📚. I'm also on `}
                 <Link href="https://twitter.com/professorragna">Twitter</Link> a
                 lot.
