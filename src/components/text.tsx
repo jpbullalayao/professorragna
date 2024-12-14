@@ -8,7 +8,7 @@ const textVariants = cva(
     variants: {
       variant: {
         header: "text-2xl font-bold",
-        body: "text-base",
+        body: "text-base leading-8",
       },
     },
     defaultVariants: {

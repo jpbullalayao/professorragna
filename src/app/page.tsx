@@ -16,6 +16,11 @@ export const metadata: Metadata = {
 
 const posts = [
   {
+    title: "Be a product engineer",
+    href: "/blog/be-a-product-engineer",
+    date: "12/14/2024",
+  },
+  {
     title: "Introducing the Start-up Engineering Library",
     href: "/blog/introducing-start-up-engineer-library",
     date: "8/1/2024",
