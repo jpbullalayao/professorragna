@@ -108,7 +108,7 @@ const Home = () => {
               </Text>
             </Section>
 
-            <Section className="flex flex-col gap-6">
+            {/* <Section className="flex flex-col gap-6">
               <Text variant="header" tag="h2">
                 Chat with me ☕
               </Text>
@@ -120,7 +120,7 @@ const Home = () => {
                 </Link>{" "}
                 with me some time and let me know how I can help!
               </Text>
-            </Section>
+            </Section> */}
 
             <Section>
               {/* Suspense needed for useSearchParams... https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout */}
