@@ -46,7 +46,7 @@ const Home = () => {
               <Text>I build start-ups.</Text>
 
               <Text>
-                {`I'm a full-stack product engineer based in the San Francisco
+                {`I'm a full-stack product engineer & investor based in the San Francisco
                 Bay Area, with a decade of experience building and deploying web
                 apps and APIs from zero.`}
               </Text>
@@ -78,33 +78,45 @@ const Home = () => {
                 I enjoy playing some games competitively. I was a 2023 and 2024
                 World Championship competitor in Pokemon.
               </Text>
-
-              <Text>
-                {`Casually, I'll wind down with a good RPG like Final Fantasy. I'm on the Dawntrail hype, catch me on Behemoth in `}
-                <Link href="https://na.finalfantasyxiv.com/lodestone/character/3410408/#profile">
-                  FFXIV
-                </Link>
-                .
-              </Text>
             </Section>
 
             <Section className="flex flex-col gap-6">
               <Text variant="header" tag="h2">
-                Start-ups & Engineering 🚀
+                Start-ups & Investing 🚀
               </Text>
 
               <Text>
-                Are you looking for an engineer for your next start-up or an
-                investor?
+                {`I invest in highly technical founders building software at scale to solve problems they experienced first-hand, with a particular interest in categories such as AI, Developer Tools, SaaS, Enterprise and FinTech.`}
               </Text>
+
+              <Text>
+                {`AI has enabled a larger generation of builders to finally build and launch revenue-generating products, myself included. Project ideas no longer get stowed away in a never-ending backlog in a Notes app. I back ambitious founders as early as seed stage who are:`}
+              </Text>
+
+              <ol className="list-decimal space-y-2 pl-6 text-base leading-8 text-primary">
+                <li>passionate and attached to their ideas</li>
+                <li>taking advantage of today&apos;s emerging technologies</li>
+                <li>
+                  {`building products with potential to influence industry and technology shifts, or with proven traction at scale`}
+                </li>
+              </ol>
 
               <Text>
                 Tweet me{" "}
                 <Link href="https://twitter.com/professorragna">
                   @professorragna
                 </Link>{" "}
-                or <Link href="mailto:professor.ragna@gmail.com">e-mail</Link>{" "}
-                {`me. I'd love to hear what you're building.`}
+                {`if you're interested in an angel, or having an experienced engineer and prior founder onboard your syndicate or fund.`}
+              </Text>
+            </Section>
+
+            <Section className="flex flex-col gap-6">
+              <Text variant="header" tag="h2">
+                Engineering 🛠️
+              </Text>
+
+              <Text>
+                {`I'm also always open to meeting other founders or fellow builders. If you're looking for an engineer for your next start-up, tweet me, I'd love to hear about what you're building.`}
               </Text>
             </Section>
 
