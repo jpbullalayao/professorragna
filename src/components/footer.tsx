@@ -8,7 +8,7 @@ interface Props {}
 
 export const Footer: React.FC<Props> = () => (
   <footer className="flex items-center justify-between border-t py-5">
-    <Text className="text-secondary text-sm">© 2024 Professor Ragna</Text>
+    <Text className="text-secondary text-sm">© 2026 Professor Ragna</Text>
     <div className="flex justify-between w-[50%] lg:w-[20%]">
       <Link href="https://twitch.tv/professorragna">
         <Twitch />
