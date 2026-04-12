@@ -116,7 +116,7 @@ const Home = () => {
               </Text>
 
               <Text>
-                I'm also always open to meeting other founders or fellow builders. If you're looking for an engineer for your next start-up, tweet me, I'd love to hear about what you're building.
+                {`I'm also always open to meeting other founders or fellow builders. If you're looking for an engineer for your next start-up, tweet me, I'd love to hear about what you're building.`}
               </Text>
             </Section>
 
