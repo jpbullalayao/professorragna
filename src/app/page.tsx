@@ -7,6 +7,7 @@ import { Link } from "@/components/link";
 import { Section } from "@/components/section";
 import { Text } from "@/components/text";
 
+import { Portfolio } from "./_components/portfolio";
 import { TipSection } from "./_components/tip-section";
 
 export const metadata: Metadata = {
@@ -108,6 +109,8 @@ const Home = () => {
                 </Link>{" "}
                 {`if you're interested in an angel, or having an experienced engineer and prior founder onboard your syndicate or fund.`}
               </Text>
+
+              <Portfolio />
             </Section>
 
             <Section className="flex flex-col gap-6">
