@@ -48,12 +48,12 @@ export const Portfolio = () => (
       Portfolio
     </Text>
 
-    <div className="grid grid-cols-[repeat(auto-fit,minmax(7rem,1fr))] gap-3">
+    <div className="grid grid-cols-[repeat(auto-fill,4.5rem)] gap-2">
       {items.map(({ name, alt, src }) => (
         <div
           key={name}
           title={name}
-          className="relative aspect-square p-2"
+          className="relative aspect-square p-1.5"
         >
           <div className="relative h-full w-full overflow-hidden rounded-md">
             {src ? (
@@ -61,7 +61,7 @@ export const Portfolio = () => (
                 src={src}
                 alt={alt}
                 fill
-                sizes="(min-width: 1024px) 7rem, 30vw"
+                sizes="4.5rem"
                 className="object-contain"
               />
             ) : (
