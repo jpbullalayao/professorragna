@@ -62,6 +62,11 @@ const Home = () => {
                 <Link href="https://twitter.com/professorragna">Twitter</Link> a
                 lot.
               </Text>
+
+              <Text>
+                You can find my resume{" "}
+                <Link href="/resume">here</Link>.
+              </Text>
             </Section>
 
             <Section className="flex flex-col gap-6">
