@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Folder } from "lucide-react";
 
 import { ResumeExplorer } from "./_components/resume-motion";
 import styles from "./resume.module.css";
@@ -21,15 +21,23 @@ const ResumePage = () => {
               <span className={`${styles.terminalDot} ${styles.dotRed}`} />
               <span className={`${styles.terminalDot} ${styles.dotYellow}`} />
               <span className={`${styles.terminalDot} ${styles.dotGreen}`} />
-              <span className={styles.terminalTitle}>resume.sh</span>
+              <span className={styles.terminalTitle}>
+                <Folder aria-hidden="true" size={13} />
+                resume.sh
+              </span>
             </div>
 
             <div className={styles.terminalBody}>
               <span className={styles.prompt}>
-                <span className={styles.promptDollar}>$</span>{" "}
-                <span className={styles.promptCommand}>whoami</span>
-                <span className={styles.promptCursor} aria-hidden="true">
-                  |
+                <span className={styles.promptPath}>
+                  ~/professorragna/resume
+                </span>
+                <span className={styles.promptDollar}>$</span>
+                <span className={styles.promptInput}>
+                  <span className={styles.promptCommand}>whoami</span>
+                  <span className={styles.promptCursor} aria-hidden="true">
+                    |
+                  </span>
                 </span>
               </span>
 

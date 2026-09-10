@@ -57,6 +57,7 @@
 }
 
 .terminalBar {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -88,6 +89,9 @@
 .terminalTitle {
   position: absolute;
   left: 50%;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   transform: translateX(-50%);
   color: var(--editor-muted);
   font-size: 0.75rem;
@@ -109,14 +113,25 @@
 
 .prompt {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
+  gap: 0.35rem 0.55rem;
   margin-bottom: 1.25rem;
   font-size: clamp(0.8rem, 2vw, 0.95rem);
+}
+
+.promptPath {
+  color: var(--syntax-blue);
 }
 
 .promptDollar,
 .syntaxGreen {
   color: var(--syntax-green);
+}
+
+.promptInput {
+  display: inline-flex;
+  align-items: baseline;
 }
 
 .promptCommand {
