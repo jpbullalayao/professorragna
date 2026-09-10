@@ -145,7 +145,7 @@
   overflow: hidden;
   color: var(--editor-text);
   white-space: nowrap;
-  animation: typeCommand 0.9s steps(6, end) 0.25s forwards;
+  animation: typeCommand 0.9s steps(6, start) 0.25s forwards;
 }
 
 .promptCursor {
@@ -609,7 +609,8 @@
   max-width: 50rem;
   margin: 1rem 0 1.5rem;
   color: var(--editor-text);
-  line-height: 1.7;
+  font-size: clamp(0.75rem, 1.8vw, 0.88rem);
+  line-height: 1.55;
 }
 
 .projectLink {
@@ -781,7 +782,7 @@
   }
 
   to {
-    width: 6ch;
+    width: calc(6ch + 1px);
   }
 }
 
