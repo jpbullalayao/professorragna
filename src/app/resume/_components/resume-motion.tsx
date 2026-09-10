@@ -183,7 +183,7 @@ export function ResumeExplorer() {
           <header className={styles.sectionHeader}>
             <p className={styles.command}>
               <span className={styles.syntaxBlue}>experience</span>:{" "}
-              <span className={styles.syntaxYellow}>Role</span> ={" "}
+              <span className={styles.syntaxPink}>Role</span> ={" "}
               <span className={styles.syntaxYellow}>select_role</span>()
             </p>
             <h2 id="experience-heading" className={styles.sectionHeading}>
