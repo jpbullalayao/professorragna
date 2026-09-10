@@ -1,4 +1,5 @@
 import React from "react";
+import NextLink from "next/link";
 
 import { Avatar } from "@/components/avatar";
 import { Link } from "@/components/link";
@@ -10,6 +11,10 @@ const NAV_ITEMS = [
   {
     name: "Home",
     href: "/",
+  },
+  {
+    name: "Resume",
+    href: "/resume",
   },
 ];
 
@@ -35,7 +40,7 @@ export const Header: React.FC<Props> = () => (
     <nav className="hidden sm:block">
       <ul>
         {NAV_ITEMS.map((navItem) => (
-          <Link
+          <NextLink
             key={navItem.name}
             href={navItem.href}
             style={{
@@ -45,7 +50,7 @@ export const Header: React.FC<Props> = () => (
             }}
           >
             {navItem.name}
-          </Link>
+          </NextLink>
         ))}
       </ul>
     </nav>
