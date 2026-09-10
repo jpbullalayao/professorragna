@@ -26,18 +26,17 @@ const ResumePage = () => {
 
             <div className={styles.terminalBody}>
               <span className={styles.prompt}>
-                <span className={styles.promptPath}>~/jourdan</span> $ ./resume.sh
-              </span>
-
-              <h1 className={styles.nameLine}>
-                <span className={styles.nameFirst}>{resumeProfile.firstName}</span>
-                <span className={styles.nameLast}> {resumeProfile.lastName}</span>
-                <span className={styles.cursor} aria-hidden="true">
+                <span className={styles.promptDollar}>$</span>{" "}
+                <span className={styles.promptCommand}>whoami</span>
+                <span className={styles.promptCursor} aria-hidden="true">
                   |
                 </span>
-              </h1>
+              </span>
 
-              <div className={styles.profileDetails}>
+              <div className={styles.profileContent}>
+                <h1 className={styles.nameLine}>
+                  {resumeProfile.firstName} {resumeProfile.lastName}
+                </h1>
                 <ul className={styles.profileList}>
                   <li className={styles.profileItem}>
                     <span className={styles.profileLabel}>phone</span>

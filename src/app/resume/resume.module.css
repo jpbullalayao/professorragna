@@ -108,58 +108,47 @@
 }
 
 .prompt {
-  display: block;
+  display: flex;
+  align-items: baseline;
   margin-bottom: 1.25rem;
   font-size: clamp(0.8rem, 2vw, 0.95rem);
 }
 
-.promptPath,
+.promptDollar,
 .syntaxGreen {
   color: var(--syntax-green);
 }
 
+.promptCommand {
+  display: inline-block;
+  width: 0;
+  overflow: hidden;
+  color: var(--editor-text);
+  white-space: nowrap;
+  animation: typeCommand 0.9s steps(6, end) 0.25s forwards;
+}
+
+.promptCursor {
+  display: inline-block;
+  width: 0.55ch;
+  margin-left: 0.08rem;
+  color: var(--editor-text);
+  animation: blink 0.95s step-end infinite;
+}
+
 .nameLine {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
   min-height: clamp(3rem, 8vw, 5.25rem);
   margin: 0 0 1.75rem;
-  color: var(--syntax-yellow);
+  color: var(--editor-text);
   font-size: clamp(2.15rem, 7vw, 4.8rem);
   font-weight: 700;
   letter-spacing: -0.05em;
   line-height: 1.05;
 }
 
-.nameFirst,
-.nameLast {
-  display: inline-block;
-  overflow: hidden;
-  white-space: nowrap;
-  vertical-align: bottom;
-}
-
-.nameFirst {
-  width: 0;
-  animation: typeFirst 1.05s steps(7, end) forwards;
-}
-
-.nameLast {
-  width: 0;
-  animation: typeLast 1.65s steps(12, end) 1.85s forwards;
-}
-
-.cursor {
-  display: inline-block;
-  width: 0.55ch;
-  margin-left: 0.08rem;
-  color: var(--syntax-pink);
-  animation: blink 0.95s step-end infinite;
-}
-
-.profileDetails {
+.profileContent {
   opacity: 0;
-  animation: fadeInUp 0.8s ease 3.65s forwards;
+  animation: fadeInUp 0.8s ease 1.45s forwards;
 }
 
 .profileList {
@@ -193,7 +182,7 @@
 }
 
 .profileLink {
-  color: var(--syntax-yellow);
+  color: var(--editor-text);
   text-decoration: none;
   transition: color 150ms ease;
 }
@@ -210,7 +199,7 @@
   justify-content: center;
   margin-top: clamp(1.25rem, 4vh, 2.5rem);
   opacity: 0;
-  animation: fadeInUp 0.8s ease 4.15s forwards;
+  animation: fadeInUp 0.8s ease 2s forwards;
 }
 
 .scrollCue {
@@ -229,7 +218,7 @@
 }
 
 .scrollCue svg {
-  animation: bounce 1.8s ease-in-out 4.8s infinite;
+  animation: bounce 1.8s ease-in-out 2.6s infinite;
 }
 
 .scrollCue:hover,
@@ -666,23 +655,13 @@
   }
 }
 
-@keyframes typeFirst {
+@keyframes typeCommand {
   from {
     width: 0;
   }
 
   to {
-    width: 7ch;
-  }
-}
-
-@keyframes typeLast {
-  from {
-    width: 0;
-  }
-
-  to {
-    width: 12ch;
+    width: 6ch;
   }
 }
 
@@ -774,18 +753,16 @@
     scroll-snap-type: none;
   }
 
-  .nameFirst,
-  .nameLast {
+  .promptCommand {
     width: auto;
     animation: none;
   }
 
-  .cursor {
-    opacity: 0;
+  .promptCursor {
     animation: none;
   }
 
-  .profileDetails,
+  .profileContent,
   .scrollCueWrap,
   .highlightList li,
   .skillChip {
