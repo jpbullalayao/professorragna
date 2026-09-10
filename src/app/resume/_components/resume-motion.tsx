@@ -241,13 +241,13 @@ export function ResumeExplorer() {
           <div className={styles.panelControls}>
             <button type="button" onClick={selectPreviousRole}>
               <ArrowLeft aria-hidden="true" size={16} />
-              previous_role
+              previous
             </button>
             <span>
               {activeRole + 1} / {resumeExperience.length}
             </span>
             <button type="button" onClick={selectNextRole}>
-              next_role
+              next
               <ArrowRight aria-hidden="true" size={16} />
             </button>
           </div>
