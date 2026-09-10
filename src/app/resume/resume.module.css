@@ -704,6 +704,11 @@
 }
 
 @media (max-width: 639px) {
+  .nameLine {
+    min-height: auto;
+    font-size: clamp(1.45rem, 5.4vw, 2.15rem);
+  }
+
   .profileItem:not(.profileObjective) {
     flex-wrap: nowrap;
     gap: 0.35rem 0.5rem;
