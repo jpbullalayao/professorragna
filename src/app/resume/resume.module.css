@@ -145,7 +145,7 @@
   overflow: hidden;
   color: var(--editor-text);
   white-space: nowrap;
-  animation: typeCommand 0.9s steps(6, end) 0.25s forwards;
+  animation: typeCommand 0.9s steps(6, start) 0.25s forwards;
 }
 
 .promptCursor {
@@ -782,7 +782,7 @@
   }
 
   to {
-    width: 6ch;
+    width: calc(6ch + 1px);
   }
 }
 
