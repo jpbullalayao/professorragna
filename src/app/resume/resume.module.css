@@ -281,6 +281,7 @@
 }
 
 .sectionNavLinks {
+  position: relative;
   display: flex;
   gap: 0.35rem;
   overflow-x: auto;
@@ -556,12 +557,31 @@
 }
 
 .projectSelectorButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   padding: 0.7rem 0.85rem;
+  line-height: 1;
 }
 
 .fileIcon {
-  margin-right: 0.45rem;
-  color: var(--syntax-green);
+  display: block;
+  width: 0.5rem;
+  height: 0.5rem;
+  flex: 0 0 0.5rem;
+  border: 1.5px solid var(--syntax-green);
+  border-radius: 50%;
+  background: transparent;
+}
+
+.fileIconActive {
+  background: var(--syntax-green);
+}
+
+.slashCommand {
+  color: var(--syntax-pink);
+  font-weight: 600;
 }
 
 .projectFocusPanel {

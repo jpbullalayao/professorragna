@@ -85,7 +85,13 @@ export const resumeProjects: ResumeProject[] = [
     name: "Metaframe.gg",
     href: "https://metaframe.gg",
     description:
-      "Pre-launch web app & API built via modern agentic workflows; aggregating competitive data & sharing insights via social media",
+      "Pre-launch web app & API built via modern agentic workflows; aggregating competitive data & sharing insights via social media. /goal monetization",
+  },
+  {
+    name: "tinytool.sh",
+    href: "https://tinytool.sh",
+    description:
+      "Web repository of simple tools built for the needs of fellow creators and developers. /goal monetization",
   },
   {
     name: "Pokemon Agent",

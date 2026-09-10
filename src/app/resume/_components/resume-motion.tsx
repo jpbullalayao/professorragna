@@ -1,6 +1,14 @@
 "use client";
 
-import { useEffect, useState, type CSSProperties } from "react";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type ReactNode,
+} from "react";
 import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 
 import styles from "../resume.module.css";
@@ -18,11 +26,62 @@ const sections = [
   { id: "skills", label: "skills" },
 ] as const;
 
+function highlightSlashCommands(text: string): ReactNode {
+  return text.split(/(\/goal)/g).map((part, index) =>
+    part === "/goal" ? (
+      <span key={index} className={styles.slashCommand}>
+        {part}
+      </span>
+    ) : (
+      part
+    ),
+  );
+}
+
 export function ResumeExplorer() {
   const [activeSection, setActiveSection] = useState("experience");
+  const [hoveredSection, setHoveredSection] = useState<string | null>(null);
+  const [progressPx, setProgressPx] = useState(0);
   const [activeRole, setActiveRole] = useState(0);
   const [activeProject, setActiveProject] = useState(0);
   const [activeSkill, setActiveSkill] = useState(resumeSkills[0]);
+  const navLinksRef = useRef<HTMLDivElement>(null);
+  const highlightedSection = hoveredSection ?? activeSection;
+
+  const updateProgress = useCallback(() => {
+    const row = navLinksRef.current;
+    if (!row) {
+      return;
+    }
+
+    const activeLink = row.querySelector<HTMLAnchorElement>(
+      `a[href="#${highlightedSection}"]`,
+    );
+
+    if (!activeLink) {
+      return;
+    }
+
+    setProgressPx(activeLink.offsetLeft + activeLink.offsetWidth);
+  }, [highlightedSection]);
+
+  useLayoutEffect(() => {
+    updateProgress();
+
+    const row = navLinksRef.current;
+    if (!row || typeof ResizeObserver === "undefined") {
+      return;
+    }
+
+    const observer = new ResizeObserver(updateProgress);
+    observer.observe(row);
+    window.addEventListener("resize", updateProgress);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", updateProgress);
+    };
+  }, [updateProgress]);
 
   useEffect(() => {
     const sectionNodes = document.querySelectorAll<HTMLElement>(
@@ -73,7 +132,16 @@ export function ResumeExplorer() {
   return (
     <div className={styles.explorer}>
       <nav className={styles.sectionNav} aria-label="Resume sections">
-        <div className={styles.sectionNavLinks}>
+        <div
+          ref={navLinksRef}
+          className={styles.sectionNavLinks}
+          onMouseLeave={() => setHoveredSection(null)}
+          onBlur={(event) => {
+            if (!event.currentTarget.contains(event.relatedTarget as Node)) {
+              setHoveredSection(null);
+            }
+          }}
+        >
           {sections.map((section, index) => (
             <a
               key={section.id}
@@ -81,6 +149,8 @@ export function ResumeExplorer() {
               data-active={activeSection === section.id}
               href={`#${section.id}`}
               aria-current={activeSection === section.id ? "location" : undefined}
+              onMouseEnter={() => setHoveredSection(section.id)}
+              onFocus={() => setHoveredSection(section.id)}
             >
               <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
               {section.label}
@@ -91,11 +161,13 @@ export function ResumeExplorer() {
           <span
             className={styles.progressBar}
             style={{
-              width: `${
-                ((sections.findIndex(({ id }) => id === activeSection) + 1) /
-                  sections.length) *
-                100
-              }%`,
+              width: progressPx
+                ? `${progressPx}px`
+                : `${
+                    ((sections.findIndex(({ id }) => id === activeSection) + 1) /
+                      sections.length) *
+                    100
+                  }%`,
             }}
           />
         </div>
@@ -212,9 +284,12 @@ export function ResumeExplorer() {
                 aria-pressed={activeProject === index}
                 onClick={() => setActiveProject(index)}
               >
-                <span className={styles.fileIcon} aria-hidden="true">
-                  {activeProject === index ? "●" : "○"}
-                </span>
+                <span
+                  className={`${styles.fileIcon} ${
+                    activeProject === index ? styles.fileIconActive : ""
+                  }`}
+                  aria-hidden="true"
+                />
                 {item.name}
               </button>
             ))}
@@ -227,7 +302,9 @@ export function ResumeExplorer() {
           >
             <p className={styles.objectKey}>selected_project</p>
             <h3 className={styles.projectName}>{project.name}</h3>
-            <p className={styles.projectDescription}>{project.description}</p>
+            <p className={styles.projectDescription}>
+              {highlightSlashCommands(project.description)}
+            </p>
             <a
               className={styles.projectLink}
               href={project.href}
