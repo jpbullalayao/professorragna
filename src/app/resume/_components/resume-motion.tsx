@@ -391,7 +391,7 @@ export function ResumeExplorer() {
           <header className={styles.sectionHeader}>
             <p className={styles.command}>
               <span className={styles.syntaxGreen}>$</span>{" "}
-              <span className={styles.syntaxPink}>npm</span> run skills --list
+              <span className={styles.syntaxPink}>npx</span> skills list
             </p>
             <h2 id="skills-heading" className={styles.sectionHeading}>
               Skills
