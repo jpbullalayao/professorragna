@@ -418,8 +418,12 @@
 }
 
 .selectorButton:hover,
+.projectSelectorButton:hover {
+  color: var(--syntax-blue);
+  transform: translateY(-2px);
+}
+
 .selectorButton:focus-visible,
-.projectSelectorButton:hover,
 .projectSelectorButton:focus-visible {
   border-color: var(--syntax-blue);
   color: var(--syntax-blue);
