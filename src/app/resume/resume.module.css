@@ -709,14 +709,33 @@
     font-size: clamp(1.45rem, 5.4vw, 2.15rem);
   }
 
-  .profileItem:not(.profileObjective) {
-    flex-wrap: nowrap;
-    gap: 0.35rem 0.5rem;
+  .profileList {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    column-gap: 0.5rem;
+    row-gap: 0.65rem;
+    align-items: baseline;
   }
 
-  .profileLabel {
-    min-width: 4.25rem;
-    flex-shrink: 0;
+  .profileItem:not(.profileObjective) {
+    display: contents;
+  }
+
+  .profileObjective {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    grid-column: 1 / -1;
+  }
+
+  .profileObjective .profileLabel {
+    min-width: 0;
+  }
+
+  .profileObjective .profileValue {
+    flex: none;
+    width: 100%;
   }
 
   .profileLink {
