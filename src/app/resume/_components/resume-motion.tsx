@@ -182,13 +182,9 @@ export function ResumeExplorer() {
         <div className={styles.sectionTerminal}>
           <header className={styles.sectionHeader}>
             <p className={styles.command}>
-              <span className={styles.syntaxBlue}>experience</span> ={" "}
-              <span className={styles.syntaxYellow}>next</span>(
-              <span className={styles.syntaxBlue}>role</span>{" "}
-              <span className={styles.syntaxPink}>for</span>{" "}
-              <span className={styles.syntaxBlue}>role</span>{" "}
-              <span className={styles.syntaxPink}>in</span>{" "}
-              <span className={styles.syntaxBlue}>roles</span>)
+              <span className={styles.syntaxBlue}>experience</span>:{" "}
+              <span className={styles.syntaxYellow}>Role</span> ={" "}
+              <span className={styles.syntaxYellow}>select_role</span>()
             </p>
             <h2 id="experience-heading" className={styles.sectionHeading}>
               Experience
