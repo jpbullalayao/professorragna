@@ -703,6 +703,39 @@
   color: var(--syntax-green);
 }
 
+@media (max-width: 639px) {
+  .profileItem:not(.profileObjective) {
+    flex-wrap: nowrap;
+    gap: 0.35rem 0.5rem;
+  }
+
+  .profileLabel {
+    min-width: 4.25rem;
+    flex-shrink: 0;
+  }
+
+  .profileLink {
+    min-width: 0;
+    font-size: clamp(0.82rem, 3.4vw, 0.9rem);
+  }
+
+  .educationPanel {
+    padding-inline: clamp(0.65rem, 2.5vw, 1rem);
+    font-size: clamp(0.62rem, 2.5vw, 0.82rem);
+    line-height: 1.6;
+  }
+
+  .codeLine {
+    grid-template-columns: 1rem minmax(0, 1fr);
+    gap: 0.25rem;
+  }
+
+  .codeLine:nth-child(2) > :last-child,
+  .codeLine:nth-child(3) > :last-child {
+    padding-left: 0;
+  }
+}
+
 @media (min-width: 640px) {
   .focusPanelHeader {
     flex-direction: row;
