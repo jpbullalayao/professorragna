@@ -98,6 +98,11 @@
   letter-spacing: 0.05em;
 }
 
+.terminalTitle svg {
+  color: #4da3ff;
+  fill: rgba(77, 163, 255, 0.2);
+}
+
 .terminalBody {
   display: flex;
   min-height: calc(clamp(30rem, 68vh, 42rem) - 2.75rem);
@@ -121,7 +126,7 @@
 }
 
 .promptPath {
-  color: var(--syntax-blue);
+  color: var(--syntax-pink);
 }
 
 .promptDollar,
