@@ -37,7 +37,7 @@ const Home = () => {
   return (
     <div className="flex justify-center">
       <div className="w-full lg:w-[70%]">
-        <Header />
+        <Header hideNavOnMobile />
 
         <main className="flex justify-center my-7 lg:my-[80px]">
           <div className="w-full lg:w-1/2">
