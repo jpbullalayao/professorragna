@@ -18,8 +18,8 @@ export interface ResumeProfile {
   phone: string;
   phoneHref: string;
   email: string;
-  xHandle: string;
-  xHref: string;
+  linkedIn: string;
+  linkedInHref: string;
 }
 
 export const resumeProfile: ResumeProfile = {
@@ -28,8 +28,8 @@ export const resumeProfile: ResumeProfile = {
   phone: "(408) 607-0410",
   phoneHref: "tel:+14086070410",
   email: "jpbullalayao@gmail.com",
-  xHandle: "@professorragna",
-  xHref: "https://twitter.com/professorragna",
+  linkedIn: "linkedin.com/in/jpbullalayao",
+  linkedInHref: "https://www.linkedin.com/in/jpbullalayao",
 };
 
 export const resumeExperience: ResumeExperience[] = [
@@ -110,7 +110,8 @@ export const resumeSkills = [
   "Cursor",
   "MCP",
   "Next.js",
-  "Python + Django",
+  "Python",
+  "Django",
   "React + Redux",
   "JavaScript",
   "TypeScript",

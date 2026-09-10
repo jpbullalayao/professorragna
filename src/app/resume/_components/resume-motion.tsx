@@ -73,12 +73,6 @@ export function ResumeExplorer() {
   return (
     <div className={styles.explorer}>
       <nav className={styles.sectionNav} aria-label="Resume sections">
-        <div className={styles.sectionNavPrompt} aria-hidden="true">
-          <span className={styles.syntaxGreen}>jourdan@resume</span>
-          <span>:</span>
-          <span className={styles.syntaxBlue}>~</span>
-          <span>$</span>
-        </div>
         <div className={styles.sectionNavLinks}>
           {sections.map((section, index) => (
             <a

@@ -60,14 +60,14 @@ const ResumePage = () => {
                     </a>
                   </li>
                   <li className={styles.profileItem}>
-                    <span className={styles.profileLabel}>x</span>
+                    <span className={styles.profileLabel}>linkedin</span>
                     <a
                       className={styles.profileLink}
-                      href={resumeProfile.xHref}
+                      href={resumeProfile.linkedInHref}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      {resumeProfile.xHandle}
+                      {resumeProfile.linkedIn}
                     </a>
                   </li>
                 </ul>

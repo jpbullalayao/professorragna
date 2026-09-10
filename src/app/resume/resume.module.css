@@ -259,22 +259,13 @@
   top: 0.75rem;
   z-index: 20;
   width: min(calc(100% - 2rem), 70rem);
-  margin: 0 auto -5.25rem;
+  margin: 0 auto -4rem;
   padding: 0.75rem;
   border: 1px solid var(--editor-line);
   border-radius: 0.5rem;
   background: rgba(30, 31, 28, 0.94);
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.32);
   backdrop-filter: blur(14px);
-}
-
-.sectionNavPrompt {
-  display: none;
-  align-items: center;
-  gap: 0.25rem;
-  margin-bottom: 0.65rem;
-  color: var(--editor-muted);
-  font-size: 0.7rem;
 }
 
 .sectionNavLinks {
@@ -428,14 +419,17 @@
 
 .selectorButton:hover,
 .selectorButton:focus-visible,
-.selectorButton[aria-pressed="true"],
 .projectSelectorButton:hover,
-.projectSelectorButton:focus-visible,
-.projectSelectorButton[aria-pressed="true"] {
+.projectSelectorButton:focus-visible {
   border-color: var(--syntax-blue);
   color: var(--syntax-blue);
   outline: none;
   transform: translateY(-2px);
+}
+
+.selectorButton[aria-pressed="true"],
+.projectSelectorButton[aria-pressed="true"] {
+  color: var(--syntax-blue);
 }
 
 .focusPanel {
@@ -604,8 +598,8 @@
   gap: 1rem;
 }
 
-.codeLine:nth-child(2),
-.codeLine:nth-child(3) {
+.codeLine:nth-child(2) > :last-child,
+.codeLine:nth-child(3) > :last-child {
   padding-left: clamp(0.5rem, 4vw, 2rem);
 }
 
@@ -666,10 +660,6 @@
 }
 
 @media (min-width: 640px) {
-  .sectionNavPrompt {
-    display: flex;
-  }
-
   .focusPanelHeader {
     flex-direction: row;
     align-items: flex-start;
