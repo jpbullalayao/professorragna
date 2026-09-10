@@ -398,19 +398,21 @@
 .selectorRail,
 .projectSelector {
   display: flex;
+  flex-wrap: nowrap;
   gap: 0.5rem;
   margin-bottom: 1rem;
   overflow-x: auto;
+  scroll-padding-inline: 0.25rem;
   scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
 }
 
 .selectorButton,
 .projectSelectorButton {
   display: inline-flex;
-  flex: 1 1 0;
+  flex: 0 0 auto;
   align-items: center;
   justify-content: center;
-  min-width: 0;
   min-height: 3rem;
   padding: 0.7rem 0.85rem;
   border: 1px solid var(--editor-line);
@@ -436,6 +438,7 @@
 
 .selectorLabel {
   line-height: 1.2;
+  white-space: nowrap;
 }
 
 .selectorButton:hover,
@@ -705,6 +708,12 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
+  }
+
+  .selectorButton,
+  .projectSelectorButton {
+    flex: 1 1 0;
+    min-width: 0;
   }
 }
 
