@@ -1,52 +1,356 @@
 "use client";
 
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
+import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 
-interface ResumeMotionProps {
-  children: React.ReactNode;
-}
+import styles from "../resume.module.css";
+import {
+  resumeEducation,
+  resumeExperience,
+  resumeProjects,
+  resumeSkills,
+} from "../resume-data";
 
-export function ResumeMotion({ children }: ResumeMotionProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
+const sections = [
+  { id: "experience", label: "experience" },
+  { id: "projects", label: "projects" },
+  { id: "education", label: "education" },
+  { id: "skills", label: "skills" },
+] as const;
 
-  useLayoutEffect(() => {
-    const container = containerRef.current;
-    if (!container) {
-      return;
-    }
+export function ResumeExplorer() {
+  const [activeSection, setActiveSection] = useState("experience");
+  const [activeRole, setActiveRole] = useState(0);
+  const [activeProject, setActiveProject] = useState(0);
+  const [activeSkill, setActiveSkill] = useState(resumeSkills[0]);
 
-    container.classList.add("motionEnabled");
-
-    const revealItems = Array.from(
-      container.querySelectorAll<HTMLElement>("[data-reveal]"),
+  useEffect(() => {
+    const sectionNodes = document.querySelectorAll<HTMLElement>(
+      "[data-resume-section]",
     );
-
-    if (revealItems.length === 0) {
-      return;
-    }
 
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) {
-            return;
-          }
+        const visibleSection = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
-          entry.target.setAttribute("data-visible", "true");
-          observer.unobserve(entry.target);
-        });
+        if (visibleSection) {
+          setActiveSection(visibleSection.target.id);
+          visibleSection.target.setAttribute("data-visible", "true");
+        }
       },
-      {
-        root: null,
-        rootMargin: "0px 0px -8% 0px",
-        threshold: 0.12,
-      },
+      { threshold: [0.25, 0.5, 0.75] },
     );
 
-    revealItems.forEach((item) => observer.observe(item));
-
+    sectionNodes.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
   }, []);
 
-  return <div ref={containerRef}>{children}</div>;
+  const role = resumeExperience[activeRole];
+  const project = resumeProjects[activeProject];
+
+  const selectPreviousRole = () => {
+    setActiveRole((current) =>
+      current === 0 ? resumeExperience.length - 1 : current - 1,
+    );
+  };
+
+  const selectNextRole = () => {
+    setActiveRole((current) => (current + 1) % resumeExperience.length);
+  };
+
+  const selectPreviousProject = () => {
+    setActiveProject((current) =>
+      current === 0 ? resumeProjects.length - 1 : current - 1,
+    );
+  };
+
+  const selectNextProject = () => {
+    setActiveProject((current) => (current + 1) % resumeProjects.length);
+  };
+
+  return (
+    <div className={styles.explorer}>
+      <nav className={styles.sectionNav} aria-label="Resume sections">
+        <div className={styles.sectionNavPrompt} aria-hidden="true">
+          <span className={styles.syntaxGreen}>jourdan@resume</span>
+          <span>:</span>
+          <span className={styles.syntaxBlue}>~</span>
+          <span>$</span>
+        </div>
+        <div className={styles.sectionNavLinks}>
+          {sections.map((section, index) => (
+            <a
+              key={section.id}
+              className={styles.sectionNavLink}
+              data-active={activeSection === section.id}
+              href={`#${section.id}`}
+              aria-current={activeSection === section.id ? "location" : undefined}
+            >
+              <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+              {section.label}
+            </a>
+          ))}
+        </div>
+        <div className={styles.progressTrack} aria-hidden="true">
+          <span
+            className={styles.progressBar}
+            style={{
+              width: `${
+                ((sections.findIndex(({ id }) => id === activeSection) + 1) /
+                  sections.length) *
+                100
+              }%`,
+            }}
+          />
+        </div>
+      </nav>
+
+      <section
+        id="experience"
+        className={styles.explorerSection}
+        data-resume-section
+        aria-labelledby="experience-heading"
+      >
+        <div className={styles.sectionTerminal}>
+          <header className={styles.sectionHeader}>
+            <p className={styles.command}>
+              <span className={styles.syntaxPink}>const</span>{" "}
+              <span className={styles.syntaxBlue}>experience</span> ={" "}
+              <span className={styles.syntaxYellow}>selectRole</span>();
+            </p>
+            <h2 id="experience-heading" className={styles.sectionHeading}>
+              Experience
+            </h2>
+            <p className={styles.sectionHint}>
+              Choose a role or run the next command.
+            </p>
+          </header>
+
+          <div className={styles.selectorRail} aria-label="Select an employer">
+            {resumeExperience.map((item, index) => (
+              <button
+                key={item.company}
+                type="button"
+                className={styles.selectorButton}
+                aria-pressed={activeRole === index}
+                onClick={() => setActiveRole(index)}
+              >
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                {item.company}
+              </button>
+            ))}
+          </div>
+
+          <article
+            key={`${role.company}-${activeRole}`}
+            className={styles.focusPanel}
+            aria-live="polite"
+          >
+            <div className={styles.focusPanelHeader}>
+              <div>
+                <p className={styles.objectKey}>company</p>
+                <h3 className={styles.company}>{role.company}</h3>
+              </div>
+              <p className={styles.period}>{role.period}</p>
+            </div>
+            <p className={styles.role}>{role.title}</p>
+            <p className={styles.techStack}>
+              <span className={styles.objectKey}>stack</span>
+              {role.technologies}
+            </p>
+            <ul className={styles.highlightList}>
+              {role.highlights.map((highlight, index) => (
+                <li
+                  key={highlight}
+                  style={{ "--line-index": index } as CSSProperties}
+                >
+                  {highlight}
+                </li>
+              ))}
+            </ul>
+          </article>
+
+          <div className={styles.panelControls}>
+            <button type="button" onClick={selectPreviousRole}>
+              <ArrowLeft aria-hidden="true" size={16} />
+              previous_role
+            </button>
+            <span>
+              {activeRole + 1} / {resumeExperience.length}
+            </span>
+            <button type="button" onClick={selectNextRole}>
+              next_role
+              <ArrowRight aria-hidden="true" size={16} />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="projects"
+        className={styles.explorerSection}
+        data-resume-section
+        aria-labelledby="projects-heading"
+      >
+        <div className={styles.sectionTerminal}>
+          <header className={styles.sectionHeader}>
+            <p className={styles.command}>
+              <span className={styles.syntaxPink}>await</span>{" "}
+              <span className={styles.syntaxBlue}>projects</span>.
+              <span className={styles.syntaxYellow}>launch</span>();
+            </p>
+            <h2 id="projects-heading" className={styles.sectionHeading}>
+              Projects
+            </h2>
+            <p className={styles.sectionHint}>
+              Select a build to inspect its output.
+            </p>
+          </header>
+
+          <div className={styles.projectSelector}>
+            {resumeProjects.map((item, index) => (
+              <button
+                key={item.name}
+                type="button"
+                className={styles.projectSelectorButton}
+                aria-pressed={activeProject === index}
+                onClick={() => setActiveProject(index)}
+              >
+                <span className={styles.fileIcon} aria-hidden="true">
+                  {activeProject === index ? "●" : "○"}
+                </span>
+                {item.name}
+              </button>
+            ))}
+          </div>
+
+          <article
+            key={`${project.name}-${activeProject}`}
+            className={`${styles.focusPanel} ${styles.projectFocusPanel}`}
+            aria-live="polite"
+          >
+            <p className={styles.objectKey}>selected_project</p>
+            <h3 className={styles.projectName}>{project.name}</h3>
+            <p className={styles.projectDescription}>{project.description}</p>
+            <a
+              className={styles.projectLink}
+              href={project.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              open project
+              <ExternalLink aria-hidden="true" size={15} />
+            </a>
+          </article>
+
+          <div className={styles.panelControls}>
+            <button type="button" onClick={selectPreviousProject}>
+              <ArrowLeft aria-hidden="true" size={16} />
+              previous_project
+            </button>
+            <span>
+              {activeProject + 1} / {resumeProjects.length}
+            </span>
+            <button type="button" onClick={selectNextProject}>
+              next_project
+              <ArrowRight aria-hidden="true" size={16} />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="education"
+        className={styles.explorerSection}
+        data-resume-section
+        aria-labelledby="education-heading"
+      >
+        <div className={styles.sectionTerminal}>
+          <header className={styles.sectionHeader}>
+            <p className={styles.command}>
+              <span className={styles.syntaxPink}>cat</span> education.json
+            </p>
+            <h2 id="education-heading" className={styles.sectionHeading}>
+              Education
+            </h2>
+          </header>
+
+          <article className={`${styles.focusPanel} ${styles.educationPanel}`}>
+            <div className={styles.codeLine}>
+              <span className={styles.lineNumber}>1</span>
+              <span>{"{"}</span>
+            </div>
+            <div className={styles.codeLine}>
+              <span className={styles.lineNumber}>2</span>
+              <span>
+                <span className={styles.syntaxBlue}>&quot;school&quot;</span>:{" "}
+                <span className={styles.syntaxYellow}>
+                  &quot;{resumeEducation.school}&quot;
+                </span>
+                ,
+              </span>
+            </div>
+            <div className={styles.codeLine}>
+              <span className={styles.lineNumber}>3</span>
+              <span>
+                <span className={styles.syntaxBlue}>&quot;degree&quot;</span>:{" "}
+                <span className={styles.syntaxYellow}>
+                  &quot;{resumeEducation.degree}&quot;
+                </span>
+              </span>
+            </div>
+            <div className={styles.codeLine}>
+              <span className={styles.lineNumber}>4</span>
+              <span>{"}"}</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section
+        id="skills"
+        className={styles.explorerSection}
+        data-resume-section
+        aria-labelledby="skills-heading"
+      >
+        <div className={styles.sectionTerminal}>
+          <header className={styles.sectionHeader}>
+            <p className={styles.command}>
+              <span className={styles.syntaxPink}>npm</span> run skills --list
+            </p>
+            <h2 id="skills-heading" className={styles.sectionHeading}>
+              Skills
+            </h2>
+            <p className={styles.sectionHint}>
+              Select a package to inspect the toolchain.
+            </p>
+          </header>
+
+          <div className={styles.skillsGrid}>
+            {resumeSkills.map((skill, index) => (
+              <button
+                key={skill}
+                type="button"
+                className={styles.skillChip}
+                aria-pressed={activeSkill === skill}
+                onClick={() => setActiveSkill(skill)}
+                style={{ "--skill-index": index } as CSSProperties}
+              >
+                <span aria-hidden="true">+</span>
+                {skill}
+              </button>
+            ))}
+          </div>
+
+          <p className={styles.terminalSuccess}>
+            <span aria-hidden="true">✓</span> selected{" "}
+            <span className={styles.syntaxYellow}>{activeSkill}</span> from{" "}
+            {resumeSkills.length} packages
+          </p>
+        </div>
+      </section>
+    </div>
+  );
 }
