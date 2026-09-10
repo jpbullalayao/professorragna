@@ -19,7 +19,7 @@ const NAV_ITEMS = [
 ];
 
 export const Header: React.FC<Props> = () => (
-  <header className="flex justify-between">
+  <header className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
     <div className="flex items-center">
       <Link href="/">
         <Avatar src={ragna} alt="Professor Ragna" width={50} height={50} />
@@ -37,20 +37,21 @@ export const Header: React.FC<Props> = () => (
       </Link>
     </div>
 
-    <nav className="hidden sm:block">
-      <ul>
+    <nav aria-label="Primary">
+      <ul className="flex items-center gap-5">
         {NAV_ITEMS.map((navItem) => (
-          <NextLink
-            key={navItem.name}
-            href={navItem.href}
-            style={{
-              color: "black",
-              padding: "0 5px 20px 5px",
-              borderBottom: "3px solid #6e58b1",
-            }}
-          >
-            {navItem.name}
-          </NextLink>
+          <li key={navItem.name}>
+            <NextLink
+              href={navItem.href}
+              style={{
+                color: "black",
+                padding: "0 5px 20px 5px",
+                borderBottom: "3px solid #6e58b1",
+              }}
+            >
+              {navItem.name}
+            </NextLink>
+          </li>
         ))}
       </ul>
     </nav>
