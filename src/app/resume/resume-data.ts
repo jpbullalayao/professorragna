@@ -44,7 +44,7 @@ export const resumeExperience: ResumeExperience[] = [
       "Claude Code, Grok Bot, AI SDK, Cursor, MCP, Next.js, Eve, Python/Django, React, TypeScript, D3, Databricks",
     highlights: [
       "Experimented with, built & demo'd first organization Eve agent to proactively debug production via MCPs like Vercel & Railway",
-      "Hired as Analytics engineering lead to collaborate with data scientists & deliver app for investors to analyze & model insurance data",
+      "Created personal and shared organizational agent skills to optimize design and engineer workflows for better operating efficiency",
       "Leveraged AI harnesses such as Claude Code for swift prototypes to gather requirements from executives & users + full build-out",
       "Partnered with lead designers to create design system tokens and agent skills for colors, components & typography for good DevEx",
       "Built graphs, and data visualization / workflow / agent tools for users & agents using libraries such as AI SDK, Plotly & visx (D3)",
