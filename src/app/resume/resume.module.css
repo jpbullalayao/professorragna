@@ -406,28 +406,36 @@
 
 .selectorButton,
 .projectSelectorButton {
+  display: inline-flex;
   flex: 1 1 0;
+  align-items: center;
+  justify-content: center;
   min-width: 0;
+  min-height: 3rem;
+  padding: 0.7rem 0.85rem;
   border: 1px solid var(--editor-line);
   border-radius: 0.3rem;
   background: var(--editor-deep);
   color: var(--editor-muted);
   font-family: inherit;
+  line-height: 1;
+  text-align: center;
   cursor: pointer;
   transition: color 150ms ease;
 }
 
 .selectorButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   gap: 0.55rem;
-  padding: 0.7rem 0.85rem;
 }
 
-.selectorButton span {
+.selectorIndex {
   color: var(--editor-comment);
   font-size: 0.68rem;
+  line-height: 1;
+}
+
+.selectorLabel {
+  line-height: 1.2;
 }
 
 .selectorButton:hover,
@@ -560,12 +568,7 @@
 }
 
 .projectSelectorButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   gap: 0.5rem;
-  padding: 0.7rem 0.85rem;
-  line-height: 1;
 }
 
 .fileIcon {

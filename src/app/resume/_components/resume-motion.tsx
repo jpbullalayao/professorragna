@@ -203,8 +203,10 @@ export function ResumeExplorer() {
                 aria-pressed={activeRole === index}
                 onClick={() => setActiveRole(index)}
               >
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                {item.company}
+                <span className={styles.selectorIndex}>
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className={styles.selectorLabel}>{item.company}</span>
               </button>
             ))}
           </div>
@@ -290,7 +292,7 @@ export function ResumeExplorer() {
                   }`}
                   aria-hidden="true"
                 />
-                {item.name}
+                <span className={styles.selectorLabel}>{item.name}</span>
               </button>
             ))}
           </div>
