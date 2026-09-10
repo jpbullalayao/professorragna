@@ -47,7 +47,7 @@ export const resumeExperience: ResumeExperience[] = [
       "Created personal and shared organizational agent skills to optimize design and engineer workflows for better operating efficiency",
       "Leveraged AI harnesses such as Claude Code for swift prototypes to gather requirements from executives & users + full build-out",
       "Partnered with lead designers to create design system tokens and agent skills for colors, components & typography for good DevEx",
-      "Built graphs, and data visualization / workflow / agent tools for users & agents using libraries such as AI SDK, Plotly & visx (D3)",
+      "Built beautiful interactive graphs, and data visualization / workflow / agent tools for users & agents using libraries such as AI SDK, Plotly & visx (D3)",
       "Moved to Reports team to help build and bring-to-market a self-serve bordereau upload & reports application for reinsurance users",
     ],
   },
