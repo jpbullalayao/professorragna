@@ -397,7 +397,7 @@ export function ResumeExplorer() {
               Skills
             </h2>
             <p className={styles.sectionHint}>
-              Select a package to inspect the toolchain.
+              Select a skill to inspect the toolchain.
             </p>
           </header>
 
