@@ -82,7 +82,7 @@ export const resumeExperience: ResumeExperience[] = [
 
 export const resumeProjects: ResumeProject[] = [
   {
-    name: "Metaframe.gg",
+    name: "metaframe.gg",
     href: "https://metaframe.gg",
     description:
       "Pre-launch web app & API built via modern agentic workflows; aggregating competitive data & sharing insights via social media. /goal monetization",

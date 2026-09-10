@@ -319,13 +319,13 @@ export function ResumeExplorer() {
           <div className={styles.panelControls}>
             <button type="button" onClick={selectPreviousProject}>
               <ArrowLeft aria-hidden="true" size={16} />
-              previous_project
+              previous
             </button>
             <span>
               {activeProject + 1} / {resumeProjects.length}
             </span>
             <button type="button" onClick={selectNextProject}>
-              next_project
+              next
               <ArrowRight aria-hidden="true" size={16} />
             </button>
           </div>
@@ -341,6 +341,7 @@ export function ResumeExplorer() {
         <div className={styles.sectionTerminal}>
           <header className={styles.sectionHeader}>
             <p className={styles.command}>
+              <span className={styles.syntaxGreen}>$</span>{" "}
               <span className={styles.syntaxPink}>cat</span> education.json
             </p>
             <h2 id="education-heading" className={styles.sectionHeading}>
@@ -389,6 +390,7 @@ export function ResumeExplorer() {
         <div className={styles.sectionTerminal}>
           <header className={styles.sectionHeader}>
             <p className={styles.command}>
+              <span className={styles.syntaxGreen}>$</span>{" "}
               <span className={styles.syntaxPink}>npm</span> run skills --list
             </p>
             <h2 id="skills-heading" className={styles.sectionHeading}>

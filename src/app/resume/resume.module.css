@@ -316,8 +316,14 @@
 .sectionNavLink:focus-visible,
 .sectionNavLink[data-active="true"] {
   background: var(--editor-panel);
-  color: var(--syntax-green);
+  color: var(--syntax-pink);
   outline: none;
+}
+
+.sectionNavLink:hover span,
+.sectionNavLink:focus-visible span,
+.sectionNavLink[data-active="true"] span {
+  color: var(--syntax-pink);
 }
 
 .progressTrack {
@@ -330,7 +336,7 @@
 .progressBar {
   display: block;
   height: 100%;
-  background: var(--syntax-green);
+  background: var(--syntax-pink);
   transition: width 350ms ease;
 }
 
