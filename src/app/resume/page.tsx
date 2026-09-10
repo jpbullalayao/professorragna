@@ -8,7 +8,7 @@ import { resumeProfile } from "./resume-data";
 export const metadata: Metadata = {
   title: "Resume - Jourdan Bul-lalayao",
   description:
-    "Interactive resume for Jourdan Bul-lalayao — senior full-stack engineer, product builder, and investor.",
+    "Resume for Jourdan Bul-lalayao - full-stack engineer, product builder, and investor",
 };
 
 const ResumePage = () => {
