@@ -1,0 +1,904 @@
+.page {
+  --editor-bg: #272822;
+  --editor-deep: #1e1f1c;
+  --editor-panel: #2f302b;
+  --editor-line: #3e3d32;
+  --editor-text: #f8f8f2;
+  --editor-muted: #a5a395;
+  --editor-comment: #75715e;
+  --syntax-pink: #f92672;
+  --syntax-green: #a6e22e;
+  --syntax-yellow: #e6db74;
+  --syntax-blue: #66d9ef;
+  --syntax-purple: #ae81ff;
+  --resume-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+
+  height: 100svh;
+  margin: -1.25rem;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(166, 226, 46, 0.05), transparent 30%),
+    var(--editor-deep);
+  color: var(--editor-text);
+  font-family: var(--resume-mono);
+}
+
+.shell {
+  width: min(100%, 84rem);
+  margin: 0 auto;
+}
+
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(1rem, 3vw, 3rem);
+  scroll-snap-align: start;
+}
+
+.terminal,
+.sectionTerminal {
+  overflow: hidden;
+  border: 1px solid var(--editor-line);
+  border-radius: 0.6rem;
+  background: var(--editor-bg);
+  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.46);
+}
+
+.terminal {
+  width: 100%;
+  max-width: 64rem;
+  min-height: clamp(30rem, 68vh, 42rem);
+  margin: 0 auto;
+}
+
+.terminalBar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--editor-line);
+  background: #20211e;
+}
+
+.terminalDot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.24);
+}
+
+.dotRed {
+  background: #ff5f57;
+}
+
+.dotYellow {
+  background: #febc2e;
+}
+
+.dotGreen {
+  background: #28c840;
+}
+
+.terminalTitle {
+  position: absolute;
+  left: 50%;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transform: translateX(-50%);
+  color: var(--editor-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.terminalTitle svg {
+  color: #4da3ff;
+  fill: rgba(77, 163, 255, 0.2);
+}
+
+.terminalBody {
+  display: flex;
+  min-height: calc(clamp(30rem, 68vh, 42rem) - 2.75rem);
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(1.5rem, 6vw, 5rem);
+}
+
+.prompt,
+.command {
+  color: var(--editor-muted);
+}
+
+.prompt {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.55rem;
+  margin-bottom: 1.25rem;
+  font-size: clamp(0.8rem, 2vw, 0.95rem);
+}
+
+.promptPath {
+  color: var(--syntax-pink);
+}
+
+.promptDollar,
+.syntaxGreen {
+  color: var(--syntax-green);
+}
+
+.promptInput {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.promptCommand {
+  display: inline-block;
+  width: 0;
+  overflow: hidden;
+  color: var(--editor-text);
+  white-space: nowrap;
+  animation: typeCommand 0.9s steps(6, end) 0.25s forwards;
+}
+
+.promptCursor {
+  display: inline-block;
+  width: 0.72em;
+  height: 1.2em;
+  flex: 0 0 0.72em;
+  background: var(--editor-muted);
+  transform: translateY(0.2em);
+  animation: blink 0.95s step-end infinite;
+}
+
+.nameLine {
+  min-height: clamp(3rem, 8vw, 5.25rem);
+  margin: 0 0 1.75rem;
+  color: var(--editor-text);
+  font-size: clamp(2.15rem, 7vw, 4.8rem);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 1.05;
+}
+
+.profileContent {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 1.45s forwards;
+}
+
+.profileList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+}
+
+.profileItem {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: baseline;
+}
+
+.profileLabel {
+  min-width: 6.75rem;
+  color: var(--syntax-blue);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.profileObjective {
+  align-items: flex-start;
+}
+
+.profileValue {
+  flex: 1 1 16rem;
+  margin: 0;
+  max-width: 52rem;
+  color: var(--editor-text);
+  line-height: 1.55;
+}
+
+.profileLabel::after {
+  content: ":";
+  color: var(--editor-text);
+}
+
+.profileLink {
+  color: var(--editor-text);
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+.profileLink:hover,
+.profileLink:focus-visible {
+  color: var(--syntax-green);
+  text-decoration: underline;
+  outline: none;
+}
+
+.scrollCueWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(1.25rem, 4vh, 2.5rem);
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 2s forwards;
+}
+
+.scrollCue {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--editor-line);
+  border-radius: 0.35rem;
+  background: var(--editor-bg);
+  color: var(--syntax-green);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  animation: bounce 1.8s ease-in-out 2.6s infinite;
+}
+
+.scrollCue:focus-visible {
+  outline: 2px solid var(--editor-muted);
+  outline-offset: 3px;
+}
+
+.explorer {
+  position: relative;
+}
+
+.sectionNav {
+  position: sticky;
+  top: 0.75rem;
+  z-index: 20;
+  width: min(calc(100% - 2rem), 70rem);
+  margin: 0 auto -4rem;
+  padding: 0.75rem;
+  border: 1px solid var(--editor-line);
+  border-radius: 0.5rem;
+  background: rgba(30, 31, 28, 0.94);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(14px);
+}
+
+.sectionNavLinks {
+  position: relative;
+  display: flex;
+  gap: 0.35rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.sectionNavLinks::-webkit-scrollbar {
+  display: none;
+}
+
+.sectionNavLink {
+  display: inline-flex;
+  flex: 1 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.65rem;
+  border-radius: 0.3rem;
+  color: var(--editor-muted);
+  font-size: clamp(0.66rem, 1.5vw, 0.78rem);
+  text-decoration: none;
+  transition:
+    color 150ms ease,
+    background 150ms ease;
+}
+
+.sectionNavLink span {
+  color: var(--editor-comment);
+}
+
+.sectionNavLink:hover,
+.sectionNavLink:focus-visible,
+.sectionNavLink[data-active="true"] {
+  background: var(--editor-panel);
+  color: var(--syntax-pink);
+  outline: none;
+}
+
+.sectionNavLink:hover span,
+.sectionNavLink:focus-visible span,
+.sectionNavLink[data-active="true"] span {
+  color: var(--syntax-pink);
+}
+
+.progressTrack {
+  height: 2px;
+  margin-top: 0.65rem;
+  overflow: hidden;
+  background: var(--editor-line);
+}
+
+.progressBar {
+  display: block;
+  height: 100%;
+  background: var(--syntax-pink);
+  transition: width 350ms ease;
+}
+
+.explorerSection {
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  padding: 6.5rem clamp(1rem, 3vw, 3rem) 2rem;
+  scroll-margin-top: 0;
+  scroll-snap-align: start;
+}
+
+.sectionTerminal {
+  width: 100%;
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: clamp(1.25rem, 4vw, 3rem);
+}
+
+.explorerSection[data-visible="true"] .sectionTerminal {
+  animation: sectionEnter 650ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.sectionHeader {
+  margin-bottom: clamp(1.25rem, 3vw, 2rem);
+}
+
+.command {
+  margin: 0 0 0.75rem;
+  font-size: 0.78rem;
+}
+
+.syntaxPink {
+  color: var(--syntax-pink);
+}
+
+.syntaxBlue {
+  color: var(--syntax-blue);
+}
+
+.syntaxYellow {
+  color: var(--syntax-yellow);
+}
+
+.sectionHeading {
+  margin: 0;
+  color: var(--editor-text);
+  font-size: clamp(1.65rem, 4vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.sectionHeading::before {
+  content: "# ";
+  color: var(--editor-comment);
+}
+
+.sectionHint {
+  margin: 0.6rem 0 0;
+  color: var(--editor-comment);
+  font-size: 0.78rem;
+}
+
+.selectorRail,
+.projectSelector {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  overflow-x: auto;
+  scroll-padding-inline: 0.25rem;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+.selectorButton,
+.projectSelectorButton {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--editor-line);
+  border-radius: 0.3rem;
+  background: var(--editor-deep);
+  color: var(--editor-muted);
+  font-family: inherit;
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
+  transition: color 150ms ease;
+}
+
+.selectorButton {
+  gap: 0.55rem;
+}
+
+.selectorIndex {
+  color: var(--editor-comment);
+  font-size: 0.68rem;
+  line-height: 1;
+}
+
+.selectorLabel {
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.selectorButton:hover,
+.projectSelectorButton:hover {
+  color: var(--syntax-blue);
+}
+
+.selectorButton:focus-visible,
+.projectSelectorButton:focus-visible {
+  border-color: var(--syntax-blue);
+  color: var(--syntax-blue);
+  outline: none;
+}
+
+.selectorButton[aria-pressed="true"],
+.projectSelectorButton[aria-pressed="true"] {
+  color: var(--syntax-blue);
+}
+
+.focusPanel {
+  min-height: 22rem;
+  padding: clamp(1rem, 3vw, 1.75rem);
+  border-left: 3px solid var(--syntax-pink);
+  background: var(--editor-deep);
+  animation: panelSwap 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.focusPanelHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 0.4rem;
+}
+
+.objectKey {
+  margin: 0 0 0.25rem;
+  color: var(--syntax-blue);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.company,
+.projectName {
+  margin: 0;
+  color: var(--syntax-yellow);
+  font-size: clamp(1.25rem, 3vw, 1.8rem);
+}
+
+.period {
+  margin: 0;
+  color: var(--syntax-pink);
+  font-size: 0.78rem;
+}
+
+.role {
+  margin: 0 0 1rem;
+  color: var(--syntax-green);
+  font-size: 0.95rem;
+}
+
+.techStack {
+  margin: 0 0 1rem;
+  color: var(--editor-muted);
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.techStack .objectKey {
+  display: inline-block;
+  margin-right: 0.75rem;
+}
+
+.highlightList {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  color: var(--editor-text);
+  font-size: clamp(0.75rem, 1.8vw, 0.88rem);
+  line-height: 1.55;
+  list-style: none;
+}
+
+.highlightList li {
+  position: relative;
+  padding-left: 1.25rem;
+  opacity: 0;
+  animation: lineReveal 350ms ease forwards;
+  animation-delay: calc(var(--line-index, 0) * 70ms + 120ms);
+}
+
+.highlightList li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: var(--syntax-pink);
+}
+
+.panelControls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.panelControls button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 0;
+  border: 0;
+  background: transparent;
+  color: var(--syntax-green);
+  font-family: inherit;
+  font-size: clamp(0.66rem, 1.6vw, 0.78rem);
+  cursor: pointer;
+}
+
+.panelControls button:hover,
+.panelControls button:focus-visible {
+  color: var(--syntax-yellow);
+  outline: none;
+}
+
+.panelControls > span {
+  color: var(--editor-comment);
+  font-size: 0.7rem;
+}
+
+.projectSelectorButton {
+  gap: 0.5rem;
+}
+
+.fileIcon {
+  display: block;
+  width: 0.7rem;
+  height: 0.7rem;
+  flex: 0 0 0.7rem;
+  border: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    #111111 0 32%,
+    #80848e 36% 100%
+  );
+}
+
+.fileIconActive {
+  background: var(--syntax-green);
+}
+
+.slashCommand {
+  color: var(--syntax-pink);
+  font-weight: 600;
+}
+
+.projectFocusPanel {
+  display: flex;
+  min-height: 20rem;
+  flex-direction: column;
+  justify-content: center;
+  border-left-color: var(--syntax-blue);
+}
+
+.projectDescription {
+  max-width: 50rem;
+  margin: 1rem 0 1.5rem;
+  color: var(--editor-text);
+  line-height: 1.7;
+}
+
+.projectLink {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--syntax-green);
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+
+.projectLink:hover,
+.projectLink:focus-visible {
+  color: var(--syntax-yellow);
+  outline: none;
+}
+
+.educationPanel {
+  min-height: auto;
+  padding-block: clamp(2rem, 7vw, 5rem);
+  border-left-color: var(--syntax-purple);
+  font-size: clamp(0.72rem, 2.3vw, 1rem);
+  line-height: 2;
+}
+
+.codeLine {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.codeLine:nth-child(2) > :last-child,
+.codeLine:nth-child(3) > :last-child {
+  padding-left: clamp(0.5rem, 4vw, 2rem);
+}
+
+.lineNumber {
+  color: var(--editor-comment);
+  user-select: none;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: 0.65rem;
+}
+
+.skillChip {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.8rem;
+  border: 1px solid var(--editor-line);
+  border-radius: 0.3rem;
+  background: var(--editor-deep);
+  color: var(--editor-text);
+  font-family: inherit;
+  font-size: 0.75rem;
+  text-align: left;
+  cursor: default;
+  opacity: 0;
+  animation: skillLoad 300ms ease forwards;
+  animation-delay: calc(var(--skill-index, 0) * 45ms);
+  transition:
+    border-color 150ms ease,
+    color 150ms ease,
+    transform 150ms ease;
+}
+
+.skillChip span {
+  color: var(--syntax-green);
+}
+
+.skillChip:hover,
+.skillChip:focus-visible,
+.skillChip[aria-pressed="true"] {
+  border-color: var(--syntax-green);
+  color: var(--syntax-yellow);
+  outline: none;
+  transform: translateY(-3px);
+}
+
+.terminalSuccess {
+  margin: 1.25rem 0 0;
+  color: var(--editor-comment);
+  font-size: 0.72rem;
+}
+
+.terminalSuccess span {
+  color: var(--syntax-green);
+}
+
+@media (max-width: 639px) {
+  .nameLine {
+    min-height: auto;
+    font-size: clamp(1.45rem, 5.4vw, 2.15rem);
+  }
+
+  .profileList {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    column-gap: 0.5rem;
+    row-gap: 0.65rem;
+    align-items: baseline;
+  }
+
+  .profileItem:not(.profileObjective) {
+    display: contents;
+  }
+
+  .profileObjective {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    grid-column: 1 / -1;
+  }
+
+  .profileObjective .profileLabel {
+    min-width: 0;
+  }
+
+  .profileObjective .profileValue {
+    flex: none;
+    width: 100%;
+  }
+
+  .profileLink {
+    min-width: 0;
+    font-size: clamp(0.82rem, 3.4vw, 0.9rem);
+  }
+
+  .educationPanel {
+    padding-inline: clamp(0.65rem, 2.5vw, 1rem);
+    font-size: clamp(0.62rem, 2.5vw, 0.82rem);
+    line-height: 1.6;
+  }
+
+  .codeLine {
+    grid-template-columns: 1rem minmax(0, 1fr);
+    gap: 0.25rem;
+  }
+
+  .codeLine:nth-child(2) > :last-child,
+  .codeLine:nth-child(3) > :last-child {
+    padding-left: 2ch;
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 640px) {
+  .focusPanelHeader {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .selectorButton,
+  .projectSelectorButton {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}
+
+@keyframes typeCommand {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 6ch;
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(0.4rem);
+  }
+}
+
+@keyframes sectionEnter {
+  from {
+    opacity: 0.35;
+    transform: translateY(2rem) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes panelSwap {
+  from {
+    opacity: 0;
+    transform: translateX(1.25rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes lineReveal {
+  from {
+    opacity: 0;
+    transform: translateX(0.75rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes skillLoad {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page {
+    scroll-behavior: auto;
+    scroll-snap-type: none;
+  }
+
+  .promptCommand {
+    width: auto;
+    animation: none;
+  }
+
+  .promptCursor {
+    animation: none;
+  }
+
+  .profileContent,
+  .scrollCueWrap,
+  .highlightList li,
+  .skillChip {
+    opacity: 1;
+    animation: none;
+  }
+
+  .scrollCue,
+  .explorerSection[data-visible="true"] .sectionTerminal,
+  .focusPanel {
+    animation: none;
+  }
+
+  .selectorButton,
+  .projectSelectorButton,
+  .skillChip {
+    transition: none;
+  }
+}
