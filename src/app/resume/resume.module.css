@@ -399,10 +399,7 @@
   color: var(--editor-muted);
   font-family: inherit;
   cursor: pointer;
-  transition:
-    color 150ms ease,
-    transform 180ms cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 180ms ease;
+  transition: color 150ms ease;
 }
 
 .selectorButton {
@@ -420,16 +417,13 @@
 .selectorButton:hover,
 .projectSelectorButton:hover {
   color: var(--syntax-blue);
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.28);
 }
 
 .selectorButton:focus-visible,
 .projectSelectorButton:focus-visible {
+  border-color: var(--syntax-blue);
   color: var(--syntax-blue);
   outline: none;
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.28);
 }
 
 .selectorButton[aria-pressed="true"],
@@ -797,13 +791,5 @@
   .projectSelectorButton,
   .skillChip {
     transition: none;
-  }
-
-  .selectorButton:hover,
-  .projectSelectorButton:hover,
-  .selectorButton:focus-visible,
-  .projectSelectorButton:focus-visible {
-    transform: none;
-    box-shadow: none;
   }
 }
