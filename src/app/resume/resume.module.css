@@ -406,7 +406,8 @@
 
 .selectorButton,
 .projectSelectorButton {
-  flex: 1 0 auto;
+  flex: 1 1 0;
+  min-width: 0;
   border: 1px solid var(--editor-line);
   border-radius: 0.3rem;
   background: var(--editor-deep);
@@ -419,6 +420,7 @@
 .selectorButton {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.55rem;
   padding: 0.7rem 0.85rem;
 }
