@@ -609,7 +609,8 @@
   max-width: 50rem;
   margin: 1rem 0 1.5rem;
   color: var(--editor-text);
-  line-height: 1.7;
+  font-size: clamp(0.75rem, 1.8vw, 0.88rem);
+  line-height: 1.55;
 }
 
 .projectLink {
