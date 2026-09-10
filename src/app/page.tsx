@@ -65,7 +65,7 @@ const Home = () => {
 
               <Text>
                 You can find my resume{" "}
-                <Link href="/resume">here</Link>
+                <Link href="/resume">here</Link>.
               </Text>
             </Section>
 
