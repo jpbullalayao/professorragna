@@ -249,16 +249,11 @@
   letter-spacing: 0.08em;
   text-decoration: none;
   text-transform: uppercase;
-}
-
-.scrollCue svg {
   animation: bounce 1.8s ease-in-out 2.6s infinite;
 }
 
-.scrollCue:hover,
 .scrollCue:focus-visible {
-  border-color: var(--syntax-green);
-  outline: 2px solid rgba(166, 226, 46, 0.22);
+  outline: 2px solid var(--editor-muted);
   outline-offset: 3px;
 }
 
@@ -823,7 +818,7 @@
     animation: none;
   }
 
-  .scrollCue svg,
+  .scrollCue,
   .explorerSection[data-visible="true"] .sectionTerminal,
   .focusPanel {
     animation: none;
