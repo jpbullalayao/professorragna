@@ -567,12 +567,16 @@
 
 .fileIcon {
   display: block;
-  width: 0.5rem;
-  height: 0.5rem;
-  flex: 0 0 0.5rem;
-  border: 1.5px solid var(--syntax-green);
+  width: 0.7rem;
+  height: 0.7rem;
+  flex: 0 0 0.7rem;
+  border: 0;
   border-radius: 50%;
-  background: transparent;
+  background: radial-gradient(
+    circle at center,
+    #111111 0 32%,
+    #80848e 36% 100%
+  );
 }
 
 .fileIconActive {
