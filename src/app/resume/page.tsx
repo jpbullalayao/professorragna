@@ -70,6 +70,10 @@ const ResumePage = () => {
                       {resumeProfile.linkedIn}
                     </a>
                   </li>
+                  <li className={`${styles.profileItem} ${styles.profileObjective}`}>
+                    <span className={styles.profileLabel}>objective</span>
+                    <p className={styles.profileValue}>{resumeProfile.objective}</p>
+                  </li>
                 </ul>
               </div>
             </div>

@@ -191,11 +191,23 @@
 }
 
 .profileLabel {
-  min-width: 4.5rem;
+  min-width: 6.75rem;
   color: var(--syntax-blue);
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.profileObjective {
+  align-items: flex-start;
+}
+
+.profileValue {
+  flex: 1 1 16rem;
+  margin: 0;
+  max-width: 52rem;
+  color: var(--editor-text);
+  line-height: 1.55;
 }
 
 .profileLabel::after {

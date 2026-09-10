@@ -20,6 +20,7 @@ export interface ResumeProfile {
   email: string;
   linkedIn: string;
   linkedInHref: string;
+  objective: string;
 }
 
 export const resumeProfile: ResumeProfile = {
@@ -30,6 +31,8 @@ export const resumeProfile: ResumeProfile = {
   email: "jpbullalayao@gmail.com",
   linkedIn: "linkedin.com/in/jpbullalayao",
   linkedInHref: "https://www.linkedin.com/in/jpbullalayao",
+  objective:
+    "Adopt new technologies, talk to users, leverage modern agentic workflows to swiftly iterate on and ship products that people want, as well as challenge and partner with world-class engineers that innovate and deliver industry impact at scale",
 };
 
 export const resumeExperience: ResumeExperience[] = [
