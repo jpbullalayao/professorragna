@@ -35,9 +35,7 @@ const ResumePage = () => {
                 <span className={styles.promptDollar}>$</span>
                 <span className={styles.promptInput}>
                   <span className={styles.promptCommand}>whoami</span>
-                  <span className={styles.promptCursor} aria-hidden="true">
-                    |
-                  </span>
+                  <span className={styles.promptCursor} aria-hidden="true" />
                 </span>
               </span>
 

@@ -145,9 +145,11 @@
 
 .promptCursor {
   display: inline-block;
-  width: 0.55ch;
-  margin-left: 0.08rem;
-  color: var(--editor-text);
+  width: 0.72em;
+  height: 1.2em;
+  flex: 0 0 0.72em;
+  background: var(--editor-muted);
+  transform: translateY(0.2em);
   animation: blink 0.95s step-end infinite;
 }
 
