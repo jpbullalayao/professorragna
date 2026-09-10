@@ -32,7 +32,7 @@ export const resumeProfile: ResumeProfile = {
   linkedIn: "linkedin.com/in/jpbullalayao",
   linkedInHref: "https://www.linkedin.com/in/jpbullalayao",
   objective:
-    "Adopt new technologies, talk to users, leverage modern agentic workflows to swiftly iterate on and ship products that people want, as well as challenge and partner with world-class engineers that innovate and deliver industry impact at scale",
+    "Team with world-class founders and engineers to build products that people want, at scale",
 };
 
 export const resumeExperience: ResumeExperience[] = [
