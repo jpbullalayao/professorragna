@@ -45,8 +45,7 @@ export const Header: React.FC<Props> = () => (
               href={navItem.href}
               style={{
                 color: "black",
-                padding: "0 5px 20px 5px",
-                borderBottom: "3px solid #6e58b1",
+                padding: "0 5px",
               }}
             >
               {navItem.name}
