@@ -15,8 +15,8 @@ export interface ResumeProject {
 export interface ResumeProfile {
   firstName: string;
   lastName: string;
-  phone: string;
-  phoneHref: string;
+  // phone: string;
+  // phoneHref: string;
   email: string;
   linkedIn: string;
   linkedInHref: string;
@@ -26,8 +26,8 @@ export interface ResumeProfile {
 export const resumeProfile: ResumeProfile = {
   firstName: "Jourdan",
   lastName: "Bul-lalayao",
-  phone: "(408) 607-0410",
-  phoneHref: "tel:+14086070410",
+  // phone: "(408) 607-0410",
+  // phoneHref: "tel:+14086070410",
   email: "jpbullalayao@gmail.com",
   linkedIn: "linkedin.com/in/jpbullalayao",
   linkedInHref: "https://www.linkedin.com/in/jpbullalayao",

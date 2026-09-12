@@ -44,12 +44,12 @@ const ResumePage = () => {
                   {resumeProfile.firstName} {resumeProfile.lastName}
                 </h1>
                 <ul className={styles.profileList}>
-                  <li className={styles.profileItem}>
+                  {/* <li className={styles.profileItem}>
                     <span className={styles.profileLabel}>phone</span>
                     <a className={styles.profileLink} href={resumeProfile.phoneHref}>
                       {resumeProfile.phone}
                     </a>
-                  </li>
+                  </li> */}
                   <li className={styles.profileItem}>
                     <span className={styles.profileLabel}>email</span>
                     <a
